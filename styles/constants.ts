@@ -12,6 +12,7 @@ const noto = Noto_Sans({
 });
 
 export const FIXED_NAVBAR_HEIGHT = 120;
+export const BASE_FONT_SIZE = 16;
 
 export const Color: { [char: string]: string } = {
   white: '#fff',

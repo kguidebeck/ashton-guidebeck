@@ -1,10 +1,10 @@
-import { useRouter } from "next/router";
-import Head from "next/head";
-import { SITE_URL } from "@utils/constants";
-import { Globals } from "@models/globals.model";
-import { Sanity } from "@models/sanity.model";
-import Header from "@components/header";
-import Footer from "@components/footer";
+import { useRouter } from 'next/router';
+import Head from 'next/head';
+import { SITE_URL } from '@utils/constants';
+import { Globals } from '@models/globals.model';
+import { Sanity } from '@models/sanity.model';
+import Header from '@components/header';
+import Footer from '@components/footer';
 
 interface LayoutProps {
   globals?: Globals;
@@ -18,7 +18,7 @@ const Layout = ({ globals, children, pageID, seo, title }: LayoutProps) => {
   const router = useRouter();
   // const { navigation, footer } = globals;
   const canonicalURL = `${SITE_URL}${router.asPath}`;
-  const defaultDescription = "Temporary default description for ashton.";
+  const defaultDescription = 'Temporary default description for ashton.';
 
   return (
     <>
@@ -28,35 +28,35 @@ const Layout = ({ globals, children, pageID, seo, title }: LayoutProps) => {
           <>
             <meta
               name="description"
-              content={seo.description ?? defaultDescription}
+              content={seo?.description ?? defaultDescription}
             />
-            {seo.keywords && <meta name="keywords" content={seo.keywords} />}
-            <link rel="canonical" href={seo.canonical_url ?? canonicalURL} />
+            {seo?.keywords && <meta name="keywords" content={seo?.keywords} />}
+            <link rel="canonical" href={seo?.canonical_url ?? canonicalURL} />
 
             {/* Open Graph */}
             <meta
               property="og:site_name"
-              content={seo.og_site_name ?? "Ashton Guidebeck"}
+              content={seo?.og_site_name ?? 'Ashton Guidebeck'}
             />
-            <meta property="og:title" content={seo.og_title ?? seo.title} />
+            <meta property="og:title" content={seo?.og_title ?? seo?.title} />
             <meta
               property="og:description"
               content={
-                seo.og_description ?? seo.description ?? defaultDescription
+                seo?.og_description ?? seo?.description ?? defaultDescription
               }
             />
             <meta property="og:image:height" content="268" />
             <meta property="og:image:width" content="512" />
             <meta
               property="og:url"
-              content={seo.canonical_url ?? canonicalURL}
+              content={seo?.canonical_url ?? canonicalURL}
             />
-            <meta
+            {/* <meta
               property="og:image"
               content={
                 seo.og_image?.url ?? `https://www.mirror.co/og-image.jpg`
               }
-            />
+            /> */}
             <meta property="og:type" content="website" />
 
             <meta
@@ -65,13 +65,13 @@ const Layout = ({ globals, children, pageID, seo, title }: LayoutProps) => {
             />
             <meta
               property="itemprop:title"
-              content={seo.itemprop_title ?? seo.title}
+              content={seo?.itemprop_title ?? seo?.title}
             />
             <meta
               property="itemprop:description"
-              content={seo.itemprop_desc ?? defaultDescription}
+              content={seo?.itemprop_desc ?? defaultDescription}
             />
-            {seo.no_index && <meta name="robots" content="noindex" />}
+            {seo?.no_index && <meta name="robots" content="noindex" />}
 
             <link rel="icon" type="image/png" href="/favicon-16x16.png?v=2" />
             <link rel="icon" type="image/png" href="/favicon-32x32.png?v=2" />

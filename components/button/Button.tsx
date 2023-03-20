@@ -4,13 +4,20 @@ import styled from 'styled-components';
 import * as Styled from './Button.styled';
 
 export interface ButtonSchema {
+  className?: string;
   href?: string | UrlObject;
   onClick?: () => void;
   disabled?: boolean;
   children: React.ReactNode;
 }
 
-const Button = ({ href, onClick, disabled, children }: ButtonSchema) => {
+const Button = ({
+  className,
+  href,
+  onClick,
+  disabled,
+  children,
+}: ButtonSchema) => {
   const isExternal = href
     ? ['/', '#'].includes(href.toString().charAt(0))
     : null;
@@ -44,7 +51,11 @@ const Button = ({ href, onClick, disabled, children }: ButtonSchema) => {
   // };
 
   return (
-    <StyledButton onClick={onClick} disabled={disabled ? true : false}>
+    <StyledButton
+      className={className}
+      onClick={onClick}
+      disabled={disabled ? true : false}
+    >
       {children}
     </StyledButton>
   );

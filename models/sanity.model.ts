@@ -2,17 +2,6 @@
 import { Globals } from './globals.model';
 
 export namespace Sanity {
-  export enum HeadlineSize {
-    H1 = 'h1',
-    H2 = 'h2',
-    H3 = 'h3',
-  }
-
-  export enum HeadlinePosition {
-    LEFT = 'left',
-    CENTER = 'center',
-  }
-
   export interface Document {
     [x: string]: any;
     _type: string;

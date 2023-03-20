@@ -1,4 +1,4 @@
-import { Color } from '@styles/constants';
+import { Color, Font, Weight, Screen } from '@styles/constants';
 import styled from 'styled-components';
 
 export interface SectionStylesProps {
@@ -6,10 +6,11 @@ export interface SectionStylesProps {
 }
 
 export const Section = styled.article<SectionStylesProps>`
-  padding: 40px 0;
+  padding: 75px 0;
 
   ${({ background }) => `
-    background-color: ${Color[background]}`}
+    background-color: ${Color[background]};
+  `}
 `;
 
 export const Grid = styled.div`
@@ -19,7 +20,7 @@ export const Grid = styled.div`
 `;
 
 export const Heading = styled.h2`
-  grid-column: 1/-1;
+  grid-column: 1 / -1;
 `;
 
 export interface SubSectionStylesProps {
@@ -27,8 +28,42 @@ export interface SubSectionStylesProps {
 }
 
 export const SubSection = styled.article<SubSectionStylesProps>`
-  padding: 10px;
-  background: green;
-
   ${({ width }) => width && `grid-column: span ${width};`}
+
+  @media ${Screen.mobile} {
+    grid-column: 1 / -1;
+  }
+`;
+
+export const SubSectionHeading = styled.h3`
+  font-family: ${Font.lora};
+  font-weight: ${Weight.regular};
+
+  @media ${Screen.mobileUp} {
+    display: flex;
+    justify-content: space-between;
+
+    #education & {
+      justify-content: flex-start;
+
+      time {
+        &::before {
+          content: '|';
+          padding: 6px;
+        }
+      }
+    }
+  }
+
+  span {
+    font-weight: ${Weight.bold};
+
+    @media ${Screen.mobile} {
+      display: block;
+    }
+  }
+`;
+
+export const SubHeading = styled.span`
+  font-style: italic;
 `;

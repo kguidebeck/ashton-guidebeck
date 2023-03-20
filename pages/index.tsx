@@ -13,7 +13,6 @@ export interface HomePageSchema {
 }
 
 const HomePage = ({ data }: HomePageSchema) => {
-  console.log(data);
   return (
     <Layout seo={data.seo}>
       <HeroHome data={data.hero} />

@@ -80,4 +80,10 @@ export const GlobalStyle = createGlobalStyle`
   iframe {
     border: 0;
   }
+
+  &.background-white + .background-white,
+  &.background-palePink + .background-palePink,
+  &.background-pink + .background-pink {
+    padding-top: 0;
+  }
 `;

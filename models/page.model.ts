@@ -1,5 +1,6 @@
 import { client } from '@utils/sanity-client';
 import { Sanity } from './sanity.model';
+import { ResumeSection } from '@components/resume/Resume.model';
 
 export interface ModulePage extends Sanity.Page {
   // marketing_modules: MarketingModulesType;
@@ -7,9 +8,10 @@ export interface ModulePage extends Sanity.Page {
 
 export const homePageType = 'page_home';
 export const resumePageType = 'page_resume';
+export const contactPageType = 'page_contact';
 
 export const HOME_PROJECTION = `{
-  seo,
+  
   hero {
     heading,
     copy,
@@ -35,6 +37,13 @@ export const RESUME_PROJECTION = `{
   }
 }`;
 
+export const CONTACT_PROJECTION = `{
+  seo,
+  heading,
+  copy,
+  show_socials
+}`;
+
 export interface HomeHeroSchema {
   heading: string;
   copy: Sanity.PortableText;
@@ -45,32 +54,16 @@ export interface HomeSchema extends Sanity.Page {
   hero: HomeHeroSchema;
 }
 
-export interface ResumeDateRange {
-  start_date?: string;
-  present_item: boolean | null;
-  end_date?: string;
-}
-
-export interface ResumeSubSection {
-  _key?: string;
-  subsection_width: string;
-  item_heading: string;
-  date_range: ResumeDateRange;
-  subheading: string;
-  copy: Sanity.PortableText;
-}
-
-export interface ResumeSection {
-  _key?: string;
-  background: string;
-  heading: string;
-  items: Array<ResumeSubSection>;
-}
-
 export interface ResumeSchema extends Sanity.Page {
   page_heading: string;
   // resume_file,
   resume_builder: Array<ResumeSection>;
+}
+
+export interface ContactSchema extends Sanity.Page {
+  heading: string;
+  copy?: Sanity.PortableText;
+  show_socials?: boolean;
 }
 
 export const getSanityData = async <T>(

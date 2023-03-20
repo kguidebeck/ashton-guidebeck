@@ -1,6 +1,6 @@
-import { NavigationSchema } from "@models/navigation.model";
-import Container from "@components/container";
-import * as Styled from "./Header.styled";
+import { NavigationSchema } from '@models/navigation.model';
+import Container from '@components/container';
+import * as Styled from './Header.styled';
 
 export interface HeaderProps {
   navigation?: NavigationSchema;
@@ -17,16 +17,18 @@ const Header = ({ navigation }: HeaderProps) => {
             <Styled.HeaderLink href="/about">About</Styled.HeaderLink>
           </Styled.HeaderItem>
           <Styled.HeaderItem>
-            <Styled.HeaderLink href="/about">Resume</Styled.HeaderLink>
+            <Styled.HeaderLink href="/cv">Resume</Styled.HeaderLink>
           </Styled.HeaderItem>
           <Styled.HeaderItem className="logo">
-            <Styled.StyledLogo />
+            <Styled.HeaderLink href="/">
+              <Styled.StyledLogo />
+            </Styled.HeaderLink>
           </Styled.HeaderItem>
           <Styled.HeaderItem>
-            <Styled.HeaderLink href="/about">Blog</Styled.HeaderLink>
+            <Styled.HeaderLink href="/blog">Blog</Styled.HeaderLink>
           </Styled.HeaderItem>
           <Styled.HeaderItem>
-            <Styled.HeaderLink href="/about">Connect</Styled.HeaderLink>
+            <Styled.HeaderLink href="/connect">Connect</Styled.HeaderLink>
           </Styled.HeaderItem>
         </Styled.HeaderItems>
       </Container>

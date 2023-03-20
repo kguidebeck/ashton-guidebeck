@@ -1,7 +1,7 @@
 import Container from '@components/container';
 import * as Styled from './HeroHome.styled';
 import { HomeHeroSchema } from '@models/page.model';
-import PortableText from '@components/portable-text';
+import PortableText from '@components/primitives/portable-text';
 
 const HeroHome = ({ data }: { data: HomeHeroSchema }) => {
   const { heading, copy, cta } = data;

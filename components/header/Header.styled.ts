@@ -1,7 +1,7 @@
-import Link from "next/link";
-import styled from "styled-components";
-import { Font, Color, Weight, Screen } from "@styles/constants";
-import Logo from "@svgs/logo";
+import Link from 'next/link';
+import styled from 'styled-components';
+import { Font, Color, Weight, Screen } from '@styles/constants';
+import Logo from '@svgs/logo';
 
 export const Header = styled.header`
   --logo-width: 175px;
@@ -21,6 +21,10 @@ export const HeaderItems = styled.ul`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media ${Screen.mobile} {
+    flex-direction: column;
+  }
 `;
 
 export const HeaderItem = styled.li`
