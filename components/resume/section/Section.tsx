@@ -9,6 +9,7 @@ import {
   ResumeSection,
   ResumeSubSection,
 } from '../Resume.model';
+import { useEffect, useState } from 'react';
 
 const formatDateRange = (date_range: ResumeDateRange) => {
   const { start_date, end_date, present_item } = date_range;
@@ -56,21 +57,45 @@ const SubSection = ({ data }: { data: ResumeSubSection }) => {
 };
 
 const Section = ({ data }: { data: ResumeSection }) => {
-  const { background, heading, items } = data;
+  const { heading, items } = data;
+  const [isOpen, setIsOpen] = useState(true);
+  const [panelHeight, setPanelHeight] = useState<number>(0);
+  const buttonId = `button-${formatId(heading)}`;
+  const sectionId = `section-${formatId(heading)}`;
+
+  const getPanelHeight = () => {
+    var panel = document.getElementById(sectionId);
+    return panel?.scrollHeight || 0;
+  };
+
+  useEffect(() => {
+    if (isOpen) setPanelHeight(getPanelHeight());
+  }, []);
+
+  const toggleSection = () => {
+    setIsOpen(!isOpen);
+
+    setPanelHeight(!isOpen ? getPanelHeight() : 0);
+  };
 
   return (
-    <Styled.Section
-      className={`background-${background || 'white'}`}
-      background={background || 'white'}
-      id={formatId(heading)}
-    >
-      <Container>
-        <Styled.Grid>
-          {heading && <Styled.Heading>{heading}</Styled.Heading>}
+    <Styled.Section>
+      {heading && (
+        <Styled.AccordionButton aria-expanded={isOpen} onClick={toggleSection}>
+          <Styled.Heading id={buttonId}>{heading}</Styled.Heading>
+          <Styled.ExpandIcon isOpen={isOpen} />
+        </Styled.AccordionButton>
+      )}
+      <Styled.AccordionSection
+        id={sectionId}
+        aria-labelledby={buttonId}
+        panelHeight={panelHeight}
+      >
+        <Styled.SectionGrid>
           {items.length &&
             items.map((item) => <SubSection key={item._key} data={item} />)}
-        </Styled.Grid>
-      </Container>
+        </Styled.SectionGrid>
+      </Styled.AccordionSection>
     </Styled.Section>
   );
 };

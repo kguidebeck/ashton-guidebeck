@@ -7,7 +7,7 @@ export const InputCSS = css`
   font-family: ${Font.noto};
   font-size: ${rem(14)};
   text-transform: uppercase;
-  border: 1px solid ${Color.rust};
+  border: 1px solid ${Color.orangeDark};
   line-height: 1.33;
   width: 100%;
 `;

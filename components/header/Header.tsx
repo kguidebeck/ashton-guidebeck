@@ -1,38 +1,69 @@
+import { useEffect, useState } from 'react';
 import { NavigationSchema } from '@models/navigation.model';
-import Container from '@components/container';
-import * as Styled from './Header.styled';
+import { VisuallyHidden } from '@styles/helpers';
+import Button from '@components/button';
+import {
+  Header as StyledHeader,
+  Container,
+  LogoWrap,
+  HeaderLink,
+  LogoSVG,
+  LogoBackground,
+  HeaderItems,
+  HeaderItem,
+} from './Header.styled';
 
 export interface HeaderProps {
   navigation?: NavigationSchema;
 }
 
 const Header = ({ navigation }: HeaderProps) => {
+  const [scrolled, setScrolled] = useState(false);
   const links = navigation?.links || [];
 
+  useEffect(() => {
+    const onScroll = () => {
+      const { scrollY } = window;
+
+      if (scrollY > 100 && !scrolled) {
+        setScrolled(true);
+      } else if (scrollY === 0 && scrolled) {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', onScroll);
+
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [scrolled]);
+
   return (
-    <Styled.Header>
+    <StyledHeader scrolled={scrolled}>
       <Container>
-        <Styled.HeaderItems>
-          <Styled.HeaderItem>
-            <Styled.HeaderLink href="/about">About</Styled.HeaderLink>
-          </Styled.HeaderItem>
-          <Styled.HeaderItem>
-            <Styled.HeaderLink href="/cv">Resume</Styled.HeaderLink>
-          </Styled.HeaderItem>
-          <Styled.HeaderItem className="logo">
-            <Styled.HeaderLink href="/">
-              <Styled.StyledLogo />
-            </Styled.HeaderLink>
-          </Styled.HeaderItem>
-          <Styled.HeaderItem>
-            <Styled.HeaderLink href="/blog">Blog</Styled.HeaderLink>
-          </Styled.HeaderItem>
-          <Styled.HeaderItem>
-            <Styled.HeaderLink href="/connect">Connect</Styled.HeaderLink>
-          </Styled.HeaderItem>
-        </Styled.HeaderItems>
+        <LogoWrap scrolled={scrolled}>
+          <HeaderLink href="/">
+            <VisuallyHidden>Practical Mental Health</VisuallyHidden>
+            <LogoBackground aria-hidden="true" />
+            <LogoSVG />
+          </HeaderLink>
+        </LogoWrap>
+
+        <HeaderItems>
+          <HeaderItem>
+            <HeaderLink href="/about">About</HeaderLink>
+          </HeaderItem>
+          <HeaderItem>
+            <HeaderLink href="/cv">Services</HeaderLink>
+          </HeaderItem>
+          <HeaderItem>
+            <HeaderLink href="/blog">Resume</HeaderLink>
+          </HeaderItem>
+          <HeaderItem>
+            <Button href="/connect">Connect</Button>
+          </HeaderItem>
+        </HeaderItems>
       </Container>
-    </Styled.Header>
+    </StyledHeader>
   );
 };
 

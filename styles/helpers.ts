@@ -1,4 +1,4 @@
-import { css } from 'styled-components';
+import styled, { css } from 'styled-components';
 import { BASE_FONT_SIZE } from './constants';
 
 // export const bp = {
@@ -22,7 +22,7 @@ export const hover = (val) => `
   }
 `;
 
-export const VisuallyHidden = css`
+export const VisuallyHidden = styled.span`
   border: 0;
   clip: rect(1px, 1px, 1px, 1px);
   height: 1px;

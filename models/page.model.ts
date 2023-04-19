@@ -24,7 +24,6 @@ export const RESUME_PROJECTION = `{
   page_heading,
   resume_builder [] {
     _key,
-    background,
     heading,
     items[] {
       _key,

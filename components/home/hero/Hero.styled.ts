@@ -3,9 +3,20 @@ import styled from 'styled-components';
 
 export const HeroWrap = styled.div``;
 
+export const CircleBackground = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 75vw;
+`;
+
 export const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
+`;
+
+export const Div = styled.div`
+  height: 500vh;
 `;
 
 export const Headshot = styled.div`
@@ -13,12 +24,12 @@ export const Headshot = styled.div`
   border-radius: 178px 178px 150px 0;
   max-width: 360px;
   width: 25vw;
-  background: ${Color.palePink};
+  background: ${Color.sageLight};
   overflow: hidden;
 
   &::after {
     content: '';
-    border: 2px solid ${Color.rust};
+    border: 3px solid ${Color.cream};
     position: absolute;
     top: -1px;
     right: -1px;

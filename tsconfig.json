@@ -15,13 +15,13 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
+      "@assets/*": ["assets/*"],
       "@components/*": ["components/*"],
       "@pages/*": ["pages/*"],
       "@styles/*": ["styles/*"],
       "@hooks/*": ["hooks/*"],
       "@utils/*": ["utils/*"],
-      "@models/*": ["models/*"],
-      "@svgs/*": ["svgs/*"]
+      "@models/*": ["models/*"]
     },
     "incremental": true
   },

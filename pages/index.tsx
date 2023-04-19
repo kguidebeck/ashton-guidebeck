@@ -6,7 +6,7 @@ import {
   HOME_PROJECTION,
 } from '@models/page.model';
 import Layout from '@components/layout';
-import HeroHome from '@components/hero-home';
+import Hero from '@components/home/hero';
 
 export interface HomePageSchema {
   data: HomeSchema;
@@ -15,7 +15,7 @@ export interface HomePageSchema {
 const HomePage = ({ data }: HomePageSchema) => {
   return (
     <Layout seo={data.seo}>
-      <HeroHome data={data.hero} />
+      <Hero data={data.hero} />
     </Layout>
   );
 };

@@ -1,4 +1,5 @@
 import { Formik } from 'formik';
+import { VisuallyHidden } from '@styles/helpers';
 import * as Styled from './ConnectForm.styled';
 import { FormValues, InputWidth } from './ConnectForm.model';
 import { Input, TextArea } from '@components/primitives/input';
@@ -46,7 +47,9 @@ const ConnectForm = () => {
         }) => (
           <form onSubmit={handleSubmit} role="form">
             <Styled.Field width={InputWidth.HALF}>
-              <Styled.Label htmlFor="first_name">First Name</Styled.Label>
+              <VisuallyHidden as="label" htmlFor="first_name">
+                First Name
+              </VisuallyHidden>
               <Input
                 id="first_name"
                 type="text"
@@ -62,7 +65,9 @@ const ConnectForm = () => {
               </Styled.Error>
             </Styled.Field>
             <Styled.Field width={InputWidth.HALF}>
-              <Styled.Label htmlFor="last_name">Last Name</Styled.Label>
+              <VisuallyHidden as="label" htmlFor="last_name">
+                Last Name
+              </VisuallyHidden>
               <Input
                 id="last_name"
                 type="text"
@@ -78,7 +83,9 @@ const ConnectForm = () => {
               </Styled.Error>
             </Styled.Field>
             <Styled.Field>
-              <Styled.Label htmlFor="email">Email</Styled.Label>
+              <VisuallyHidden as="label" htmlFor="email">
+                Email
+              </VisuallyHidden>
               <Input
                 id="email"
                 type="email"
@@ -94,7 +101,9 @@ const ConnectForm = () => {
               </Styled.Error>
             </Styled.Field>
             <Styled.Field>
-              <Styled.Label htmlFor="message">Message</Styled.Label>
+              <VisuallyHidden as="label" htmlFor="message">
+                Message
+              </VisuallyHidden>
               <TextArea
                 id="name"
                 type="textarea"

@@ -11,10 +11,11 @@ export const ButtonStyles = css<ButtonStylesProps>`
   display: block;
   font-family: ${Font.noto};
   text-transform: uppercase;
-  padding: 15px 30px;
+  padding: 18px 50px;
   max-width: none;
-  border-radius: 50px;
-  background: ${Color.rust};
+  border-radius: 55px;
+  line-height: 1.125;
+  background: ${Color.orangeDark};
   color: ${Color.white};
   border: 0;
 
@@ -25,7 +26,7 @@ export const ButtonStyles = css<ButtonStylesProps>`
   cursor: pointer;
 
   &:hover {
-    background: ${Color.taupe};
+    background: ${Color.orange};
     color: ${Color.white};
   }
 
@@ -33,13 +34,8 @@ export const ButtonStyles = css<ButtonStylesProps>`
     disabled &&
     css`
       &:disabled {
-        background: ${Color.rust};
+        background: ${Color.orange};
         color: ${Color.white};
-
-        &:hover {
-          background: ${Color.taupe};
-          color: ${Color.white};
-        }
       }
     `};
 `;

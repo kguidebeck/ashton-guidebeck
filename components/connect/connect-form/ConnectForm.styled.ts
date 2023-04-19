@@ -16,8 +16,4 @@ export const Field = styled.div<{ width?: InputWidth }>`
     width == InputWidth.HALF ? 'span 1' : '1 / -1'};
 `;
 
-export const Label = styled.label`
-  ${VisuallyHidden}
-`;
-
 export const Error = styled.span``;

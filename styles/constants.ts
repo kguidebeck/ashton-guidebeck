@@ -15,14 +15,19 @@ export const FIXED_NAVBAR_HEIGHT = 120;
 export const BASE_FONT_SIZE = 16;
 
 export const Color: { [char: string]: string } = {
-  white: '#fff',
+  white: '#FFF',
   black: '#000',
-  rust: '#733F28',
-  taupe: '#C2947E',
-  pink: '#FFEAE0',
-  palePink: '#FFF6F2',
-  blue: '#1B5263',
-  darkBlue: '#01212B',
+  orangeDark: '#8E542F',
+  orange: '#AD714B',
+  orangeLight: '#D9B39A',
+  pink: '#DEC2B1',
+  pinkLight: '#EDDCD0',
+  pinkPale: '#FBF2ED',
+  cream: '#F9F8F3',
+  sand: '#EFEADC',
+  sageLight: '#D1CFBC',
+  sage: '#B1AF99',
+  sageDark: '#6C674B',
 };
 
 export const Font = {

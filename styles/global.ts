@@ -16,15 +16,15 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 16px;
     font-weight: ${Weight.regular};
     line-height: 1.5;
-    color: ${Color.darkBlue};
-    background-color: ${Color.pink};
+    color: ${Color.black};
+    background-color: ${Color.cream};
     cursor: url("/cursor.svg"), auto;
 
     * {
       &::selection {
         /* WebKit/Blink Browsers */ background: $darkBlue;
         color: ${Color.white};
-        background-color: ${Color.darkBlue}
+        background-color: ${Color.sageDark}
       }
     }
   }
@@ -34,7 +34,6 @@ export const GlobalStyle = createGlobalStyle`
     margin-bottom: .125em;
     font-weight: ${Weight.bold};
     line-height: 1;
-    color: ${Color.darkBlue};
     font-family: ${Font.noto};
     text-transform: uppercase;
   }
@@ -52,7 +51,7 @@ export const GlobalStyle = createGlobalStyle`
 
   button, a {
     &:focus-visible {
-      outline: 2px solid ${Color.blue};
+      outline: 2px solid ${Color.orangeDark};
       outline-offset: 2px;
     }
 
@@ -69,7 +68,7 @@ export const GlobalStyle = createGlobalStyle`
 
   input, textarea {
     &:focus-visible {
-      border-bottom-color: ${Color.blue};
+      border-bottom-color: ${Color.orangeDark};
     }
   }
 
