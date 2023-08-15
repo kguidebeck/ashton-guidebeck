@@ -9,6 +9,7 @@ const StyledForm = styled('form', {
   display: 'grid',
   gridTemplateColumns: 'repeat(2, 1fr)',
   gridGap: '20px',
+  alignSelf: 'flex-start',
 
   '@bpPortrait': {
     marginTop: '40px',
