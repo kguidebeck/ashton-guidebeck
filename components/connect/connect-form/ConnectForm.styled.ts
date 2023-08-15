@@ -1,19 +1,19 @@
 import styled from 'styled-components';
-import { InputWidth } from './ConnectForm.model';
-import { VisuallyHidden } from '@styles/helpers';
+import StyledButton from '@components/ui/button';
+import { rem } from '@styles/helpers';
 
 export const Form = styled.div`
+  margin-top: ${rem(45)};
+
   form {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     grid-gap: 20px 10px;
   }
 `;
 
-export const Field = styled.div<{ width?: InputWidth }>`
-  position: relative;
-  grid-column: ${({ width }) =>
-    width == InputWidth.HALF ? 'span 1' : '1 / -1'};
+export const Button = styled(StyledButton)`
+  margin-left: auto;
 `;
 
 export const Error = styled.span``;

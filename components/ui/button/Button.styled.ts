@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import styled, { css } from 'styled-components';
 import { Color, Ease, Font } from '@styles/constants';
+import { rem } from '@styles/helpers';
 
 export interface ButtonStylesProps {
   disabled?: boolean;
@@ -11,7 +12,7 @@ export const ButtonStyles = css<ButtonStylesProps>`
   display: block;
   font-family: ${Font.noto};
   text-transform: uppercase;
-  padding: 18px 50px;
+  padding: ${rem(18)} ${rem(50)};
   max-width: none;
   border-radius: 55px;
   line-height: 1.125;

@@ -5,6 +5,7 @@ import { Globals } from '@models/globals.model';
 import { Sanity } from '@models/sanity.model';
 import Header from '@components/header';
 import Footer from '@components/footer';
+import PageWrap from '@components/ui/page-wrap';
 
 interface LayoutProps {
   globals?: Globals;
@@ -73,8 +74,16 @@ const Layout = ({ globals, children, pageID, seo, title }: LayoutProps) => {
             />
             {seo?.no_index && <meta name="robots" content="noindex" />}
 
-            <link rel="icon" type="image/png" href="/favicon-16x16.png?v=2" />
-            <link rel="icon" type="image/png" href="/favicon-32x32.png?v=2" />
+            <link
+              rel="icon"
+              type="image/png"
+              href="/images/favicon-16x16.png?v=2"
+            />
+            <link
+              rel="icon"
+              type="image/png"
+              href="/images/favicon-32x32.png?v=2"
+            />
             <link
               rel="apple-touch-icon"
               sizes="180x180"
@@ -94,7 +103,9 @@ const Layout = ({ globals, children, pageID, seo, title }: LayoutProps) => {
 
       <Header navigation={globals?.navigation} />
 
-      <main id={pageID}>{children}</main>
+      <main id={pageID}>
+        <PageWrap>{children}</PageWrap>
+      </main>
 
       <Footer />
     </>

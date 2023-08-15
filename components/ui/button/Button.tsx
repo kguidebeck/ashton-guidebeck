@@ -18,13 +18,13 @@ const Button = ({
   disabled,
   children,
 }: ButtonSchema) => {
-  const isExternal = href
+  const isInternal = href
     ? ['/', '#'].includes(href.toString().charAt(0))
     : null;
   const hasHash = href?.toString().includes('#');
 
   const StyledButton = styled(
-    !isExternal && href ? Link : isExternal && href ? 'a' : 'button'
+    isInternal && href ? Link : !isInternal && href ? 'a' : 'button'
   )`
     ${Styled.ButtonStyles}
   `;
@@ -55,6 +55,7 @@ const Button = ({
       className={className}
       onClick={onClick}
       disabled={disabled ? true : false}
+      {...(href && { href })}
     >
       {children}
     </StyledButton>

@@ -1,14 +1,12 @@
 import { Formik } from 'formik';
-import { VisuallyHidden } from '@styles/helpers';
 import * as Styled from './ConnectForm.styled';
-import { FormValues, InputWidth } from './ConnectForm.model';
-import { Input, TextArea } from '@components/primitives/input';
-import Button from '@components/button/Button';
+import { FormErrors, FormValues } from './ConnectForm.model';
+import InputWrap from '@components/ui/input';
+import Button from '@components/ui/button/Button';
 
 const ConnectForm = () => {
   const initialValues = {
-    first_name: '',
-    last_name: '',
+    full_name: '',
     email: '',
     message: '',
   };
@@ -18,7 +16,10 @@ const ConnectForm = () => {
       <Formik
         initialValues={initialValues}
         validate={(values: FormValues) => {
-          const errors = {};
+          const errors = {} as FormErrors;
+          if (!values.full_name) {
+            errors.full_name = 'Required';
+          }
           if (!values.email) {
             errors.email = 'Required';
           } else if (
@@ -45,48 +46,31 @@ const ConnectForm = () => {
           isSubmitting,
           /* and other goodies */
         }) => (
-          <form onSubmit={handleSubmit} role="form">
-            <Styled.Field width={InputWidth.HALF}>
-              <VisuallyHidden as="label" htmlFor="first_name">
-                First Name
-              </VisuallyHidden>
-              <Input
-                id="first_name"
+          <form onSubmit={handleSubmit}>
+            <InputWrap
+              id="full_name"
+              label="Full Name"
+              error={errors.full_name}
+              touched={touched.full_name}
+            >
+              <input
+                id="full_name"
                 type="text"
-                name="first_name"
-                placeholder="First Name*"
+                name="full_name"
+                placeholder="Full Name*"
                 required
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.first_name}
+                value={values.full_name}
               />
-              <Styled.Error>
-                {errors.first_name && touched.first_name && errors.first_name}
-              </Styled.Error>
-            </Styled.Field>
-            <Styled.Field width={InputWidth.HALF}>
-              <VisuallyHidden as="label" htmlFor="last_name">
-                Last Name
-              </VisuallyHidden>
-              <Input
-                id="last_name"
-                type="text"
-                name="last_name"
-                placeholder="Last Name*"
-                required
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.last_name}
-              />
-              <Styled.Error>
-                {errors.last_name && touched.last_name && errors.last_name}
-              </Styled.Error>
-            </Styled.Field>
-            <Styled.Field>
-              <VisuallyHidden as="label" htmlFor="email">
-                Email
-              </VisuallyHidden>
-              <Input
+            </InputWrap>
+            <InputWrap
+              id="email"
+              label="Email"
+              error={errors.email}
+              touched={touched.email}
+            >
+              <input
                 id="email"
                 type="email"
                 name="email"
@@ -96,17 +80,16 @@ const ConnectForm = () => {
                 onBlur={handleBlur}
                 value={values.email}
               />
-              <Styled.Error>
-                {errors.email && touched.email && errors.email}
-              </Styled.Error>
-            </Styled.Field>
-            <Styled.Field>
-              <VisuallyHidden as="label" htmlFor="message">
-                Message
-              </VisuallyHidden>
-              <TextArea
-                id="name"
-                type="textarea"
+            </InputWrap>
+            <InputWrap
+              type="textarea"
+              id="message"
+              label="Message"
+              error={errors.message}
+              touched={touched.message}
+            >
+              <textarea
+                id="message"
                 rows={8}
                 name="message"
                 placeholder="Type your message here."
@@ -115,15 +98,10 @@ const ConnectForm = () => {
                 onBlur={handleBlur}
                 value={values.message}
               />
-              <Styled.Error>
-                {errors.message && touched.message && errors.message}
-              </Styled.Error>
-            </Styled.Field>
-            <Styled.Field>
-              <Button type="submit" disabled={isSubmitting}>
-                Submit
-              </Button>
-            </Styled.Field>
+            </InputWrap>
+            <Styled.Button type="submit" disabled={isSubmitting}>
+              Submit
+            </Styled.Button>
           </form>
         )}
       </Formik>

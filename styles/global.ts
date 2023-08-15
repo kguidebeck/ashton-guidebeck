@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import { Font, Weight, Color } from './constants';
+import { wysiwygStyles } from './wysiwyg';
 
 export const GlobalStyle = createGlobalStyle`
   :root {
@@ -16,9 +17,9 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 16px;
     font-weight: ${Weight.regular};
     line-height: 1.5;
-    color: ${Color.black};
+    color: ${Color.greenDark};
     background-color: ${Color.cream};
-    cursor: url("/cursor.svg"), auto;
+    cursor: url("/images/cursor-pointer.svg"), auto;
 
     * {
       &::selection {
@@ -84,5 +85,9 @@ export const GlobalStyle = createGlobalStyle`
   &.background-palePink + .background-palePink,
   &.background-pink + .background-pink {
     padding-top: 0;
+  }
+
+  .wysiwyg {
+    ${wysiwygStyles}
   }
 `;

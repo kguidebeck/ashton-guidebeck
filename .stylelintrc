@@ -1,9 +1,12 @@
 {
   "extends": [
-    "@gulls/stylelint-config/styled-components"
+    "stylelint-config-standard-scss",
+    "stylelint-config-prettier-scss",
+    "stylelint-config-idiomatic-order"
   ],
   "rules": {
     "number-leading-zero": null,
     "string-quotes": "single"
-  }
+  },
+  "plugins": ["stylelint-scss"]
 }

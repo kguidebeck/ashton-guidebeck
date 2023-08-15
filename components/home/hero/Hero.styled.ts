@@ -1,7 +1,10 @@
 import { Color } from '@styles/constants';
+import { rem } from '@styles/helpers';
 import styled from 'styled-components';
 
-export const HeroWrap = styled.div``;
+export const Hero = styled.div`
+  padding-bottom: ${rem(80)};
+`;
 
 export const CircleBackground = styled.div`
   position: absolute;
@@ -15,27 +18,29 @@ export const Grid = styled.div`
   grid-template-columns: 1fr 1fr;
 `;
 
-export const Div = styled.div`
-  height: 500vh;
+export const Content = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+  padding-top: ${rem(80)};
 `;
 
 export const Headshot = styled.div`
   position: relative;
-  border-radius: 178px 178px 150px 0;
-  max-width: 360px;
+  max-width: ${rem(420)};
   width: 25vw;
-  background: ${Color.sageLight};
+  color: ${Color.sageLight};
   overflow: hidden;
+  margin: 0 ${rem(100)};
 
-  &::after {
-    content: '';
-    border: 3px solid ${Color.cream};
+  img {
     position: absolute;
-    top: -1px;
-    right: -1px;
-    bottom: -1px;
-    left: -1px;
-    border-radius: 178px 178px 150px 0;
+    bottom: 14px;
+    width: 85%;
+    height: auto;
+    left: 50%;
+    transform: translateX(-50%);
   }
 `;
 
@@ -51,4 +56,17 @@ export const Image = styled.img`
   transform: translateX(-50%);
   max-width: unset;
   width: 110%;
+`;
+
+export const Copy = styled.div`
+  max-width: ${rem(550)};
+
+  a {
+    margin-top: ${rem(40)};
+    display: inline-block;
+  }
+`;
+
+export const Heading = styled.h1`
+  margin-bottom: ${rem(35)};
 `;

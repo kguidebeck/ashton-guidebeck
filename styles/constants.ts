@@ -23,11 +23,12 @@ export const Color: { [char: string]: string } = {
   pink: '#DEC2B1',
   pinkLight: '#EDDCD0',
   pinkPale: '#FBF2ED',
-  cream: '#F9F8F3',
+  cream: '#FAF9F4',
   sand: '#EFEADC',
   sageLight: '#D1CFBC',
   sage: '#B1AF99',
   sageDark: '#6C674B',
+  greenDark: '#022118',
 };
 
 export const Font = {

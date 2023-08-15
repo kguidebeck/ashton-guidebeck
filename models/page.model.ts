@@ -1,5 +1,5 @@
 import { client } from '@utils/sanity-client';
-import { Sanity } from './sanity.model';
+import { IMAGE_PROJECTION, Sanity } from './sanity.model';
 import { ResumeSection } from '@components/resume/Resume.model';
 
 export interface ModulePage extends Sanity.Page {
@@ -8,20 +8,23 @@ export interface ModulePage extends Sanity.Page {
 
 export const homePageType = 'page_home';
 export const resumePageType = 'page_resume';
-export const contactPageType = 'page_contact';
+export const contactPageType = 'page_connect';
 
 export const HOME_PROJECTION = `{
-  
   hero {
     heading,
     copy,
-    cta
+    cta,
+    "image": image.imageData {
+      ${IMAGE_PROJECTION}
+    }
   }
 }`;
 
 export const RESUME_PROJECTION = `{
   seo,
   page_heading,
+  copy,
   resume_builder [] {
     _key,
     heading,
@@ -32,7 +35,7 @@ export const RESUME_PROJECTION = `{
       date_range,
       subheading,
       copy
-    } 
+    }
   }
 }`;
 
@@ -40,6 +43,12 @@ export const CONTACT_PROJECTION = `{
   seo,
   heading,
   copy,
+  "background_desktop": background_desktop.imageData {
+    ${IMAGE_PROJECTION}
+  },
+  "background_mobile": background_mobile.imageData {
+    ${IMAGE_PROJECTION}
+  },
   show_socials
 }`;
 
@@ -47,6 +56,7 @@ export interface HomeHeroSchema {
   heading: string;
   copy: Sanity.PortableText;
   cta: Sanity.Cta;
+  image: Sanity.Image;
 }
 
 export interface HomeSchema extends Sanity.Page {
@@ -55,13 +65,15 @@ export interface HomeSchema extends Sanity.Page {
 
 export interface ResumeSchema extends Sanity.Page {
   page_heading: string;
-  // resume_file,
+  copy?: Sanity.PortableText;
   resume_builder: Array<ResumeSection>;
 }
 
-export interface ContactSchema extends Sanity.Page {
+export interface ConnectSchema extends Sanity.Page {
   heading: string;
   copy?: Sanity.PortableText;
+  background_desktop: Sanity.Image;
+  background_mobile: Sanity.Image;
   show_socials?: boolean;
 }
 

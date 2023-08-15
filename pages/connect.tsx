@@ -1,14 +1,14 @@
 import {
   getSanityData,
   contactPageType,
-  ContactSchema,
+  ConnectSchema,
   CONTACT_PROJECTION,
 } from '@models/page.model';
 import Layout from '@components/layout';
 import Connect from '@components/connect';
 
 export interface ConnectPageSchema {
-  data: ContactSchema;
+  data: ConnectSchema;
 }
 
 const ConnectPage = ({ data }: ConnectPageSchema) => {
@@ -21,7 +21,7 @@ const ConnectPage = ({ data }: ConnectPageSchema) => {
 
 export async function getServerSideProps() {
   const [data] = await Promise.all([
-    await getSanityData<ContactSchema>(contactPageType, CONTACT_PROJECTION),
+    await getSanityData<ConnectSchema>(contactPageType, CONTACT_PROJECTION),
   ]);
 
   if (!data) {

@@ -1,4 +1,8 @@
-// import { CloudinaryAsset } from "./cloudinary-asset.model";
+import {
+  SanityImageCrop,
+  SanityImageHotspot,
+} from '@sanity/image-url/lib/types/types';
+import { PortableTextBlock } from '@portabletext/types';
 import { Globals } from './globals.model';
 
 export namespace Sanity {
@@ -46,15 +50,7 @@ export namespace Sanity {
     container?: React.Component;
   }
 
-  export interface PortableText {
-    blocks: any[] | any;
-    className?: string;
-    renderContainerOnSingleChild?: boolean;
-    serializers?: Serializers;
-    imageOptions?: any;
-    projectId?: string;
-    dataset?: string;
-  }
+  export type PortableText = PortableTextBlock[];
 
   export interface Social {
     facebook_url?: string;
@@ -89,4 +85,36 @@ export namespace Sanity {
       _ref: string;
     };
   }
+
+  export interface SanityAsset {
+    url: string;
+    metadata: {
+      aspectRatio: number;
+      height: number;
+      width: number;
+    };
+  }
+
+  export interface Image {
+    alt: string;
+    asset: SanityAsset;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+  }
 }
+
+export const IMAGE_PROJECTION = `
+  alt,
+  asset->{
+    _type,
+    _id,
+    url,
+    metadata {
+      "width": dimensions.width,
+      "aspectRatio": dimensions.aspectRatio,
+      "height": dimensions.height,
+    },
+  },
+  crop,
+  hotspot,
+`;

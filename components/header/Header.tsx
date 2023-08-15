@@ -1,17 +1,9 @@
 import { useEffect, useState } from 'react';
 import { NavigationSchema } from '@models/navigation.model';
 import { VisuallyHidden } from '@styles/helpers';
-import Button from '@components/button';
-import {
-  Header as StyledHeader,
-  Container,
-  LogoWrap,
-  HeaderLink,
-  LogoSVG,
-  LogoBackground,
-  HeaderItems,
-  HeaderItem,
-} from './Header.styled';
+import Button from '@components/ui/button';
+import * as Styled from './Header.styled';
+import Hamburger from '@assets/svgs/Hamburger';
 
 export interface HeaderProps {
   navigation?: NavigationSchema;
@@ -19,7 +11,12 @@ export interface HeaderProps {
 
 const Header = ({ navigation }: HeaderProps) => {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const links = navigation?.links || [];
+
+  const toggleMobile = () => {
+    setMobileOpen((prevState) => !prevState);
+  };
 
   useEffect(() => {
     const onScroll = () => {
@@ -38,32 +35,33 @@ const Header = ({ navigation }: HeaderProps) => {
   }, [scrolled]);
 
   return (
-    <StyledHeader scrolled={scrolled}>
-      <Container>
-        <LogoWrap scrolled={scrolled}>
-          <HeaderLink href="/">
-            <VisuallyHidden>Practical Mental Health</VisuallyHidden>
-            <LogoBackground aria-hidden="true" />
-            <LogoSVG />
-          </HeaderLink>
-        </LogoWrap>
+    <Styled.Header scrolled={scrolled}>
+      <Styled.Container>
+        <Styled.LogoWrap scrolled={scrolled}>
+          <Styled.LogoBackground aria-hidden="true" />
+          <Styled.HeaderLink className="logo-link" href="/">
+            <VisuallyHidden>Ashton Guidebeck</VisuallyHidden>
+            <Styled.LogoSVG />
+          </Styled.HeaderLink>
+        </Styled.LogoWrap>
 
-        <HeaderItems>
-          <HeaderItem>
-            <HeaderLink href="/about">About</HeaderLink>
-          </HeaderItem>
-          <HeaderItem>
-            <HeaderLink href="/cv">Services</HeaderLink>
-          </HeaderItem>
-          <HeaderItem>
-            <HeaderLink href="/blog">Resume</HeaderLink>
-          </HeaderItem>
-          <HeaderItem>
+        <Styled.MobileToggle onClick={toggleMobile} isOpen={mobileOpen}>
+          <Hamburger />
+        </Styled.MobileToggle>
+
+        <Styled.HeaderItems>
+          <Styled.HeaderItem>
+            <Styled.HeaderLink href="/">Home</Styled.HeaderLink>
+          </Styled.HeaderItem>
+          <Styled.HeaderItem>
+            <Styled.HeaderLink href="/cv">Curriculum Vitae</Styled.HeaderLink>
+          </Styled.HeaderItem>
+          <Styled.HeaderItem>
             <Button href="/connect">Connect</Button>
-          </HeaderItem>
-        </HeaderItems>
-      </Container>
-    </StyledHeader>
+          </Styled.HeaderItem>
+        </Styled.HeaderItems>
+      </Styled.Container>
+    </Styled.Header>
   );
 };
 
