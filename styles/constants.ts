@@ -62,7 +62,7 @@ export const Screen = {
 };
 
 export const Ease = {
-  out: `cubic-bezier(0.28, 0.44, 0.49, 1)`,
+  out: `cubic-bezier(0, 0, 0, 1)`,
   outFast: `cubic-bezier(0.2, 1, 0.2, 1)`,
   duration: '0.2s',
 };

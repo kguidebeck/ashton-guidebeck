@@ -14,7 +14,7 @@ export interface HomePageSchema {
 
 const HomePage = ({ data }: HomePageSchema) => {
   return (
-    <Layout seo={data.seo}>
+    <Layout pageID="home" seo={data.seo}>
       <Hero data={data.hero} />
     </Layout>
   );

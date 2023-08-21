@@ -1,4 +1,4 @@
-const CircleHome = () => (
+const CircleDesktop = () => (
   <svg viewBox="0 0 1143 1047" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       fillRule="evenodd"
@@ -9,4 +9,4 @@ const CircleHome = () => (
   </svg>
 );
 
-export default CircleHome;
+export default CircleDesktop;

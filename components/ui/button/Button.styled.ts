@@ -14,11 +14,11 @@ export const ButtonStyles = css<ButtonStylesProps>`
   text-transform: uppercase;
   padding: ${rem(18)} ${rem(50)};
   max-width: none;
-  border-radius: 55px;
+  border-radius: ${rem(55)};
   line-height: 1.125;
-  background: ${Color.orangeDark};
-  color: ${Color.white};
-  border: 0;
+  background: var(--button-background, ${Color.orangeDark});
+  color: var(--button-color, ${Color.white});
+  border: 3px solid var(--button-border, transparent);
 
   transition: background ${Ease.duration} ${Ease.out},
     color ${Ease.duration} ${Ease.out};
@@ -27,7 +27,7 @@ export const ButtonStyles = css<ButtonStylesProps>`
   cursor: pointer;
 
   &:hover {
-    background: ${Color.orange};
+    background: var(--button-hover, ${Color.orange});
     color: ${Color.white};
   }
 

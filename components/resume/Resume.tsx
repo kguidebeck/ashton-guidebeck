@@ -9,7 +9,7 @@ export interface ResumeComponentSchema {
 }
 
 const Resume = ({ data }: ResumeComponentSchema) => {
-  const { page_heading, copy, resume_builder } = data;
+  const { page_heading, copy, resume_file, resume_builder } = data;
 
   return (
     <Styled.Resume>
@@ -24,13 +24,14 @@ const Resume = ({ data }: ResumeComponentSchema) => {
                 </div>
               )} */}
             </div>
-            <Styled.DownloadButton
-              onClick={() => {
-                console.log('download pdf');
-              }}
-            >
-              Download
-            </Styled.DownloadButton>
+            {resume_file?.asset.url && (
+              <Styled.DownloadButton
+                href={`${resume_file.asset.url}`}
+                target="_blank"
+              >
+                Download
+              </Styled.DownloadButton>
+            )}
           </Styled.HeaderWrapper>
         </Styled.Header>
         {resume_builder.length &&

@@ -1,13 +1,16 @@
-import * as Styled from "./Footer.styled";
-import Container from "@components/container";
+import * as Styled from './Footer.styled';
+import Container from '@components/container';
 
 const Footer = () => {
   return (
-    <Styled.FooterWrap>
+    <Styled.Footer>
       <Container>
-        <div>FOOTER</div>
+        <Styled.Content>
+          <p>ASHTON GUIDEBECK</p>
+          <p>&#169;{new Date().getFullYear()}</p>
+        </Styled.Content>
       </Container>
-    </Styled.FooterWrap>
+    </Styled.Footer>
   );
 };
 

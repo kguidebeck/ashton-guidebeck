@@ -21,9 +21,14 @@ export const GlobalStyle = createGlobalStyle`
     background-color: ${Color.cream};
     cursor: url("/images/cursor-pointer.svg"), auto;
 
+    &.mobile-open {
+      overflow: hidden;
+    }
+
     * {
       &::selection {
-        /* WebKit/Blink Browsers */ background: $darkBlue;
+        /* WebKit/Blink Browsers */
+        background: ${Color.sageDark};
         color: ${Color.white};
         background-color: ${Color.sageDark}
       }

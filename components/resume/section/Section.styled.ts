@@ -151,6 +151,10 @@ export const SubSectionHeading = styled.h3`
     #section-education & {
       justify-content: flex-start;
 
+      span {
+        padding-right: 0;
+      }
+
       time {
         font-size: var(--heading-size);
 

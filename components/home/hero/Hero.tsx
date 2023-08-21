@@ -1,21 +1,24 @@
-import Container from '@components/container';
 import * as Styled from './Hero.styled';
-import { HOME_PROJECTION, HomeHeroSchema } from '@models/page.model';
-import CircleHome from '@assets/svgs/CircleHome';
+import { HomeHeroSchema } from '@models/page.model';
+import CircleDesktop from '@assets/svgs/CircleDesktop';
+import CircleMobile from '@assets/svgs/CircleMobile';
 import HeadshotBackground from '@assets/svgs/HeadshotBackground';
 import RichText from '@components/ui/rich-text';
 import Button from '@components/ui/button/Button';
 import Image from 'next/image';
 
 const Hero = ({ data }: { data: HomeHeroSchema }) => {
-  const { heading, copy, cta, image } = data;
+  const { heading, copy, cta, image, graphic } = data;
 
   return (
     <Styled.Hero>
-      <Styled.CircleBackground>
-        <CircleHome />
-      </Styled.CircleBackground>
-      <Container>
+      <Styled.BackgroundWrap>
+        <Styled.CircleBackground>
+          <CircleDesktop />
+          <CircleMobile />
+        </Styled.CircleBackground>
+      </Styled.BackgroundWrap>
+      <Styled.Container>
         <Styled.Content>
           <Styled.Headshot>
             <HeadshotBackground />
@@ -34,8 +37,19 @@ const Hero = ({ data }: { data: HomeHeroSchema }) => {
             {copy && <RichText value={copy} />}
             {cta?.url && <Button href={cta.url}>{cta.text}</Button>}
           </Styled.Copy>
+
+          {graphic?.asset?.url && (
+            <Styled.PlantGraphic>
+              <Image
+                src={graphic.asset.url}
+                width={516}
+                height={590}
+                alt={graphic.alt}
+              />
+            </Styled.PlantGraphic>
+          )}
         </Styled.Content>
-      </Container>
+      </Styled.Container>
     </Styled.Hero>
   );
 };

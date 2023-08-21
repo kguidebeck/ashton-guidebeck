@@ -17,6 +17,7 @@ const Button = ({
   onClick,
   disabled,
   children,
+  ...rest
 }: ButtonSchema) => {
   const isInternal = href
     ? ['/', '#'].includes(href.toString().charAt(0))
@@ -29,33 +30,13 @@ const Button = ({
     ${Styled.ButtonStyles}
   `;
 
-  // const scrollToSection = (el: React.MouseEvent<HTMLElement>) => {
-  //   const path = el.currentTarget.getAttribute('href');
-  //   const hash = path?.slice(path.indexOf('#'));
-  //   if (!hash) return;
-
-  //   if (hash) {
-  //     const section = document.getElementById(hash.replace('#', ''));
-
-  //     // if (section) {
-  //     //   const yOffset = -FIXED_NAVBAR_HEIGHT;
-
-  //     //   scroller.scrollTo(section.id, {
-  //     //     duration: 1000,
-  //     //     delay: 0,
-  //     //     smooth: true,
-  //     //     offset: yOffset,
-  //     //   });
-  //     // }
-  //   }
-  // };
-
   return (
     <StyledButton
       className={className}
-      onClick={onClick}
       disabled={disabled ? true : false}
       {...(href && { href })}
+      {...(onClick && { onClick })}
+      {...rest}
     >
       {children}
     </StyledButton>

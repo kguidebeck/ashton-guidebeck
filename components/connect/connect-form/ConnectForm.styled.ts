@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import StyledButton from '@components/ui/button';
 import { rem } from '@styles/helpers';
+import { ButtonStyles } from '@components/ui/button/Button.styled';
+import { Color, Ease, Font } from '@styles/constants';
 
 export const Form = styled.div`
   margin-top: ${rem(45)};
@@ -12,8 +13,28 @@ export const Form = styled.div`
   }
 `;
 
-export const Button = styled(StyledButton)`
+export const Submit = styled.button`
+  ${ButtonStyles}
   margin-left: auto;
 `;
 
-export const Error = styled.span``;
+export const Message = styled.div<{ active: boolean }>`
+  position: absolute;
+  width: 100%;
+  font-family: ${Font.noto};
+  font-size: ${rem(12)};
+  background-color: ${Color.sageDark};
+  color: ${Color.cream};
+  margin-top: ${rem(15)};
+  padding: ${rem(8)} ${rem(15)};
+  text-align: center;
+  border-radius: ${rem(30)};
+  transform: scaleY(0);
+  transition: transform 300ms ${Ease.out};
+
+  ${({ active }) =>
+    active &&
+    `
+    transform: scaleY(100%);
+  `}
+`;

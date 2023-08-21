@@ -1,7 +1,9 @@
 import styled from 'styled-components';
+import Link from 'next/link';
 import { Screen } from '@styles/constants';
 import Button from '@components/ui/button';
 import { rem } from '@styles/helpers';
+import { ButtonStyles } from '@components/ui/button/Button.styled';
 
 export const Resume = styled.div`
   --container-width: 1080px;
@@ -21,7 +23,9 @@ export const HeaderWrapper = styled.div`
   }
 `;
 
-export const DownloadButton = styled(Button)`
+export const DownloadButton = styled(Link)`
+  ${ButtonStyles}
+
   @media ${Screen.mobile} {
     width: 100%;
     margin-top: 20px;

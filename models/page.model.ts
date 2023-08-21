@@ -17,6 +17,9 @@ export const HOME_PROJECTION = `{
     cta,
     "image": image.imageData {
       ${IMAGE_PROJECTION}
+    },
+    "graphic": graphic.imageData {
+      ${IMAGE_PROJECTION}
     }
   }
 }`;
@@ -24,6 +27,13 @@ export const HOME_PROJECTION = `{
 export const RESUME_PROJECTION = `{
   seo,
   page_heading,
+  resume_file {
+    asset -> {
+      url,
+      originalFilename,
+      mimeType
+    }
+  },
   copy,
   resume_builder [] {
     _key,
@@ -57,6 +67,7 @@ export interface HomeHeroSchema {
   copy: Sanity.PortableText;
   cta: Sanity.Cta;
   image: Sanity.Image;
+  graphic: Sanity.Image;
 }
 
 export interface HomeSchema extends Sanity.Page {
@@ -66,6 +77,7 @@ export interface HomeSchema extends Sanity.Page {
 export interface ResumeSchema extends Sanity.Page {
   page_heading: string;
   copy?: Sanity.PortableText;
+  resume_file?: Sanity.File;
   resume_builder: Array<ResumeSection>;
 }
 
