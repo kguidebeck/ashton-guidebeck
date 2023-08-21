@@ -31,13 +31,11 @@ const Hero = ({ data }: { data: HomeHeroSchema }) => {
               />
             )}
           </Styled.Headshot>
-
           <Styled.Copy>
             {heading && <Styled.Heading>Welcome, I'm Ashton.</Styled.Heading>}
             {copy && <RichText value={copy} />}
             {cta?.url && <Button href={cta.url}>{cta.text}</Button>}
           </Styled.Copy>
-
           {graphic?.asset?.url && (
             <Styled.PlantGraphic>
               <Image
