@@ -1,11 +1,11 @@
-import * as Styled from './Hero.styled';
+import Image from 'next/image';
 import { HomeHeroSchema } from '@models/page.model';
 import CircleDesktop from '@assets/svgs/CircleDesktop';
 import CircleMobile from '@assets/svgs/CircleMobile';
 import HeadshotBackground from '@assets/svgs/HeadshotBackground';
 import RichText from '@components/ui/rich-text';
 import Button from '@components/ui/button/Button';
-import Image from 'next/image';
+import * as Styled from './Hero.styled';
 
 const Hero = ({ data }: { data: HomeHeroSchema }) => {
   const { heading, copy, cta, image, graphic } = data;

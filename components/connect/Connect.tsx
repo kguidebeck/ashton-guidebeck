@@ -1,9 +1,9 @@
-import Container from '@components/container/Container';
+import Image from 'next/image';
 import { ConnectSchema } from '@models/page.model';
+import Container from '@components/container';
+import RichText from '@components/ui/rich-text';
 import ConnectForm from './connect-form';
 import * as Styled from './Connect.styled';
-import Image from 'next/image';
-import RichText from '@components/ui/rich-text';
 
 const Connect = ({ data }: { data: ConnectSchema }) => {
   const { heading, copy, background_desktop, background_mobile } = data;

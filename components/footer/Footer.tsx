@@ -1,5 +1,5 @@
-import * as Styled from './Footer.styled';
 import Container from '@components/container';
+import * as Styled from './Footer.styled';
 
 const Footer = () => {
   return (

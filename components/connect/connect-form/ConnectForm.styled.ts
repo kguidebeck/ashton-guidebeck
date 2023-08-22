@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { rem } from '@styles/helpers';
-import { ButtonStyles } from '@components/ui/button/Button.styled';
 import { Color, Ease, Font } from '@styles/constants';
+import { ButtonStyles } from '@components/ui/button/Button.styled';
 
 export const Form = styled.div`
   margin-top: ${rem(45)};

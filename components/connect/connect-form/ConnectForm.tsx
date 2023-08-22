@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { Formik } from 'formik';
-import * as Styled from './ConnectForm.styled';
-import { FormErrors, FormValues } from './ConnectForm.model';
-import InputWrap from '@components/ui/input';
 import netlifySubmit from '@utils/netlifySubmit';
 import { VisuallyHidden } from '@styles/helpers';
+import InputWrap from '@components/ui/input';
+import { FormErrors, FormValues } from './ConnectForm.model';
+import * as Styled from './ConnectForm.styled';
 
 const ConnectForm = () => {
   const [message, setMessage] = useState<string>();

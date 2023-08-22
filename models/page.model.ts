@@ -1,6 +1,6 @@
 import { client } from '@utils/sanity-client';
-import { IMAGE_PROJECTION, Sanity } from './sanity.model';
 import { ResumeSection } from '@components/resume/Resume.model';
+import { IMAGE_PROJECTION, Sanity } from './sanity.model';
 
 export interface ModulePage extends Sanity.Page {
   // marketing_modules: MarketingModulesType;
