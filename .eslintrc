@@ -1,8 +1,5 @@
 {
-  "extends": [
-    "next",
-    "prettier"
-  ],
+  "extends": ["next", "prettier"],
   "env": {
     "browser": true,
     "node": true,
@@ -11,11 +8,13 @@
   "rules": {
     "@next/next/no-img-element": 0,
     "import/no-unresolved": 2,
-    "import/export": 2,
+    "import/export": 0,
     "jsx-a11y/alt-text": 2,
-    "no-undef": 2,
-    "no-unused-vars": 2,
-    "no-console": 2,
+    "no-undef": 1,
+    "no-unused-vars": 1,
+    "no-console": 1,
+    "prefer-const": 1,
+    "object-shorthand": 1,
     "react/no-unused-prop-types": [
       2,
       {
@@ -27,10 +26,7 @@
   "settings": {
     "import/resolver": {
       "node": {
-        "moduleDirectory": [
-          "node_modules",
-          "src/"
-        ]
+        "moduleDirectory": ["node_modules", "src/"]
       }
     }
   }

@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import Link from 'next/link';
 import { Screen } from '@styles/constants';
-import Button from '@components/ui/button';
-import { rem } from '@styles/helpers';
 import { ButtonStyles } from '@components/ui/button/Button.styled';
 
 export const Resume = styled.div`

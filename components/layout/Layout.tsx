@@ -1,3 +1,4 @@
+import React from 'react';
 import { Sanity } from '@models/sanity.model';
 import Seo from '@components/seo';
 import PageWrap from '@components/ui/page-wrap';

@@ -18,11 +18,11 @@ const Resume = ({ data }: ResumeComponentSchema) => {
           <Styled.HeaderWrapper>
             <div>
               {page_heading && <h1>{page_heading}</h1>}
-              {/* {copy && (
+              {copy && (
                 <div className="wysiwyg">
                   <RichText value={copy} />
                 </div>
-              )} */}
+              )}
             </div>
             {resume_file?.asset.url && (
               <Styled.DownloadButton

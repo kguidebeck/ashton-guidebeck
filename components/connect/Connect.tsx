@@ -6,8 +6,7 @@ import Image from 'next/image';
 import RichText from '@components/ui/rich-text';
 
 const Connect = ({ data }: { data: ConnectSchema }) => {
-  const { heading, copy, background_desktop, background_mobile, show_socials } =
-    data;
+  const { heading, copy, background_desktop, background_mobile } = data;
 
   return (
     <Styled.Connect>

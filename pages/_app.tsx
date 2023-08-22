@@ -13,6 +13,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <GlobalStyle />
       <Helmet>
         <meta charSet="UTF-8" />
+        {/* <title>Ashton Guidebeck</title> */}
         <link
           rel="apple-touch-icon"
           sizes="180x180"

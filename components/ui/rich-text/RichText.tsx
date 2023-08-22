@@ -14,8 +14,10 @@ const portableTextComponents: PortableTextComponents = {
       return (
         <a
           href={value?.href}
-          target={value?.blank ? '_blank' : '_self'}
-          rel={rel}
+          {...(value?.blank && {
+            target: '_blank',
+            rel,
+          })}
         >
           {children}
         </a>

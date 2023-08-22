@@ -1,5 +1,4 @@
-import Link from 'next/link';
-import styled, { css } from 'styled-components';
+import { css } from 'styled-components';
 import { Color, Ease, Font } from '@styles/constants';
 import { rem } from '@styles/helpers';
 

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import useMediaQuery from '@hooks/useMediaQuery';
 import Hamburger from '@assets/svgs/Hamburger';

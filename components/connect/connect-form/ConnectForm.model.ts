@@ -11,7 +11,7 @@ export interface FormErrors {
   message: string | undefined;
 }
 
-export enum InputWidth {
-  FULL = 'full',
-  HALF = 'half',
-}
+// export enum InputWidth {
+//   FULL = 'full',
+//   HALF = 'half',
+// }

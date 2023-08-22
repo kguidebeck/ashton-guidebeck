@@ -1,0 +1,9 @@
+node_modules
+.cache
+package.json
+yarn.lock
+public
+.next
+*.d.ts
+.coverage
+.lighthouseci
