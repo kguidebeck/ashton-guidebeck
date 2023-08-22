@@ -77,6 +77,7 @@ const ConnectForm = () => {
                   type="hidden"
                   name="form-name"
                   value={values['form-name']}
+                  readOnly
                 />
                 <label htmlFor="bot-field">
                   Don&apos;t fill this out if you&apos;re human:
