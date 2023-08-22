@@ -28,6 +28,7 @@ const Hero = ({ data }: { data: HomeHeroSchema }) => {
                 alt={image.alt}
                 width={403}
                 height={606}
+                priority
               />
             )}
           </Styled.Headshot>

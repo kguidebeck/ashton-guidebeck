@@ -1,8 +1,13 @@
 /** @type {import('next').NextConfig} */
+
 const nextConfig = {
   reactStrictMode: true, // suggest you enable Strict Mode - https://nextjs.org/docs/api-reference/next.config.js/react-strict-mode
   images: {
     domains: ['cdn.sanity.io'],
+  },
+  i18n: {
+    locales: ['en'],
+    defaultLocale: 'en',
   },
   swcMinify: true,
   webpack(config) {

@@ -342,13 +342,13 @@ export const HeaderItem = styled.li`
   }
 `;
 
-export const PrimaryLink = styled(Link)<{ scrolled: boolean }>`
+export const PrimaryLink = styled(Link)<{ $scrolled: boolean }>`
   ${ButtonStyles}
   transition: padding 300ms ${Ease.out};
 
   @media ${Screen.mobileUp} {
-    ${({ scrolled }) =>
-      scrolled &&
+    ${({ $scrolled }) =>
+      $scrolled &&
       `
       padding: ${rem(10)} ${rem(40)};
     `}

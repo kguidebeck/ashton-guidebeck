@@ -7,8 +7,9 @@ export const Hero = styled.div`
   min-height: calc(100vh - ${rem(76)});
   padding-bottom: ${rem(80)};
   display: flex;
-  align-item: center;
+  align-items: center;
   width: 100%;
+  overflow: hidden;
 
   @media ${Screen.laptopSm} {
     padding: ${rem(100)} 0;
@@ -168,7 +169,7 @@ export const Headshot = styled.div`
 
   & > img {
     position: absolute;
-    bottom: 0.85vw;
+    bottom: 2.5%;
     width: 85%;
     height: auto;
     left: 50%;

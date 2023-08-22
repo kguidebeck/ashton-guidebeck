@@ -135,7 +135,7 @@ const Header = () => {
                     onClick={(e) => handleClick(e, link.url)}
                     onBlur={(e) => handleBlur(e, 'last')}
                     tabIndex={isMobile && !mobileOpen ? -1 : 0}
-                    scrolled={scrolled}
+                    $scrolled={scrolled}
                   >
                     {link.text}
                   </Styled.PrimaryLink>
