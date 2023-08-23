@@ -16,6 +16,7 @@ export const Form = styled.div`
 export const Submit = styled.button`
   ${ButtonStyles}
   margin-left: auto;
+  min-width: ${rem(192)};
 `;
 
 export const Message = styled.div<{ active: boolean }>`

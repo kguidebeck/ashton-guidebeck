@@ -39,23 +39,26 @@ const ConnectForm = () => {
 
             netlifySubmit(values)
               .then(() => {
-                setSubmitting(false);
-                resetForm();
-                setMessage(
-                  'Thank you for your message. I will be in touch shortly.'
-                );
+                setTimeout(() => {
+                  resetForm();
+                  setMessage(
+                    'Thank you for your message. I will be in touch shortly.'
+                  );
+                  setSubmitting(false);
+                }, 500);
               })
               .catch((error) => {
                 // eslint-disable-next-line no-console
                 console.log(error);
-                setMessage(
-                  `There was an error with your submission${
-                    error ? `: ${error}` : '.'
-                  }`
-                );
+                setTimeout(() => {
+                  setMessage(
+                    `There was an error with your submission${
+                      error ? `: ${error}` : '.'
+                    }`
+                  );
+                  setSubmitting(false);
+                }, 500);
               });
-
-            setSubmitting(false);
           }}
         >
           {({

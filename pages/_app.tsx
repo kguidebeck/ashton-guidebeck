@@ -37,7 +37,7 @@ export default function App({ Component, pageProps }: AppProps) {
           href="/favicons/safari-pinned-tab.svg"
           color="#000000"
         />
-        <link rel="shortcut icon" href="/favicons/favicon.ico" />
+        <link rel="shortcut icon" href="/favicon.ico" />
 
         <meta name="msapplication-TileColor" content="#6C674B" />
         <meta
