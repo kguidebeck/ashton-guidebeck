@@ -35,6 +35,8 @@ const ConnectForm = () => {
             return errors;
           }}
           onSubmit={(values: FormValues, { setSubmitting, resetForm }) => {
+            setSubmitting(true);
+
             netlifySubmit(values)
               .then(() => {
                 setSubmitting(false);
@@ -85,15 +87,15 @@ const ConnectForm = () => {
                 </label>
               </VisuallyHidden>
               <InputWrap
-                id="full_name"
+                id="fullName"
                 label="Full Name"
                 error={errors.full_name}
                 touched={touched.full_name}
               >
                 <input
-                  id="full_name"
+                  id="fullName"
                   type="text"
-                  name="full_name"
+                  name="fullName"
                   placeholder="FULL NAME*"
                   required
                   onChange={handleChange}
@@ -111,7 +113,7 @@ const ConnectForm = () => {
                   id="email"
                   type="email"
                   name="email"
-                  placeholder="EMAIL*"
+                  placeholder="EMAIL ADDRESS*"
                   required
                   onChange={handleChange}
                   onBlur={handleBlur}
