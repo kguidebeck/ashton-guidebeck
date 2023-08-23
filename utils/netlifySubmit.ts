@@ -13,9 +13,10 @@ const netlifySubmit = async (values: any) => {
   }
 
   return axios({
-    method: 'post',
+    method: 'POST',
     url: '/connect',
-    headers: { 'Content-Type': 'multipart/form-data' },
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    // headers: { 'Content-Type': 'multipart/form-data' },
     data: formData,
   });
 };

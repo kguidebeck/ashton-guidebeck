@@ -9,7 +9,6 @@ import * as Styled from './ConnectForm.styled';
 const ConnectForm = () => {
   const [message, setMessage] = useState<string>();
   const initialValues = {
-    'form-name': 'connect',
     fullName: '',
     email: '',
     message: '',
@@ -81,7 +80,7 @@ const ConnectForm = () => {
                 <input
                   type="hidden"
                   name="form-name"
-                  value={values['form-name']}
+                  value="connect"
                   readOnly
                 />
                 <label htmlFor="bot-field">
