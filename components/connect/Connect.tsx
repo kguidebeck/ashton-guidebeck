@@ -19,8 +19,8 @@ const Connect = ({ data }: { data: ConnectSchema }) => {
             <Image
               className="image--desktop"
               src={background_desktop.asset.url}
-              width={2048}
-              height={1644}
+              width={1052}
+              height={862}
               priority
               loading="eager"
               alt={background_desktop.alt || ''}

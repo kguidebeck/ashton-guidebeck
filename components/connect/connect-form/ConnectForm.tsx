@@ -10,7 +10,7 @@ const ConnectForm = () => {
   const [message, setMessage] = useState<string>();
   const initialValues = {
     'form-name': 'connect',
-    full_name: '',
+    fullName: '',
     email: '',
     message: '',
   };
@@ -22,8 +22,8 @@ const ConnectForm = () => {
           initialValues={initialValues}
           validate={(values: FormValues) => {
             const errors = {} as FormErrors;
-            if (!values.full_name) {
-              errors.full_name = 'Required';
+            if (!values.fullName) {
+              errors.fullName = 'Required';
             }
             if (!values.email) {
               errors.email = 'Required';
@@ -89,8 +89,8 @@ const ConnectForm = () => {
               <InputWrap
                 id="fullName"
                 label="Full Name"
-                error={errors.full_name}
-                touched={touched.full_name}
+                error={errors.fullName}
+                touched={touched.fullName}
               >
                 <input
                   id="fullName"
@@ -100,7 +100,7 @@ const ConnectForm = () => {
                   required
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  value={values.full_name}
+                  value={values.fullName}
                 />
               </InputWrap>
               <InputWrap
