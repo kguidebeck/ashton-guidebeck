@@ -43,6 +43,11 @@ const ConnectForm = () => {
                   setMessage(
                     'Thank you for your message. I will be in touch shortly.'
                   );
+                  window.scrollTo({
+                    top: 100,
+                    left: 100,
+                    behavior: 'smooth',
+                  });
                   setSubmitting(false);
                 }, 500);
               })
