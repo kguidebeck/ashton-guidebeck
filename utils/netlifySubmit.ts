@@ -1,4 +1,4 @@
-// import axios from 'axios';
+import axios from 'axios';
 
 const encode = (data: any) => {
   return Object.keys(data)
@@ -13,9 +13,7 @@ const encode = (data: any) => {
 const netlifySubmit = async (values: any) => {
   const formData = encode(values);
 
-  console.log(formData);
-
-  fetch('/', {
+  return fetch('/connect', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: formData,
