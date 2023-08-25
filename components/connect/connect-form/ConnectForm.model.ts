@@ -1,6 +1,5 @@
 export interface FormValues {
   'form-name': string;
-  'bot-field': string;
   fullName: string;
   email: string;
   message: string;
