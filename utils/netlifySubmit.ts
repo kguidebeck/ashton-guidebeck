@@ -26,10 +26,10 @@ const netlifySubmit = async (values: any) => {
   // })
 
   return axios({
-    method: 'POST',
-    url: '/connect',
+    method: 'post',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     data: formData,
+    url: '/connect',
   });
 };
 
