@@ -40,6 +40,14 @@ const ConnectForm = () => {
           onSubmit={(values: FormValues, { setSubmitting, resetForm }) => {
             setSubmitting(true);
 
+            const botField = document.getElementsByName(
+              'bot-field'
+            )[0] as HTMLInputElement;
+
+            if (botField) {
+              values['bot-field'] = botField.value;
+            }
+
             netlifySubmit(values)
               .then(() => {
                 setTimeout(() => {
@@ -83,19 +91,19 @@ const ConnectForm = () => {
               name="connect"
               onSubmit={handleSubmit}
               data-netlify="true"
-              data-netlify-honeypot="bot-field"
+              netlify-honeypot="bot-field"
             >
               <input
                 type="hidden"
                 name="form-name"
                 value={values['form-name']}
               />
-              <VisuallyHidden as="div">
-                <label htmlFor="bot-field">
-                  Don&apos;t fill this out if you&apos;re human:
-                  <input name="bot-field" />
-                </label>
-              </VisuallyHidden>
+              {/* <VisuallyHidden as="div"> */}
+              <label htmlFor="bot-field">
+                Don&apos;t fill this out if you&apos;re human:
+                <input name="bot-field" />
+              </label>
+              {/* </VisuallyHidden> */}
               <InputWrap
                 id="fullName"
                 label="Full Name"
