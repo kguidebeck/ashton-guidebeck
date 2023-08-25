@@ -82,7 +82,7 @@ const ConnectForm = () => {
               data-netlify="true"
               data-netlify-honeypot="bot-field"
             >
-              <VisuallyHidden as="div" aria-hidden="true">
+              <VisuallyHidden as="div">
                 <input
                   type="hidden"
                   name="form-name"
