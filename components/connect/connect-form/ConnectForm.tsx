@@ -44,7 +44,7 @@ const ConnectForm = () => {
               'bot-field'
             )[0] as HTMLInputElement;
 
-            if (botField) {
+            if (botField && botField.value !== '') {
               values['bot-field'] = botField.value;
             }
 
@@ -91,7 +91,7 @@ const ConnectForm = () => {
               name="connect"
               onSubmit={handleSubmit}
               data-netlify="true"
-              netlify-honeypot="bot-field"
+              data-netlify-honeypot="bot-field"
             >
               <input
                 type="hidden"
