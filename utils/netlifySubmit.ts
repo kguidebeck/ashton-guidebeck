@@ -13,7 +13,9 @@ const encode = (data: any) => {
 const netlifySubmit = async (values: any) => {
   const formData = encode(values);
 
-  fetch('/connect', {
+  console.log(formData);
+
+  fetch('/', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: formData,
