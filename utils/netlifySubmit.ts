@@ -1,4 +1,4 @@
-import axios from 'axios';
+// import axios from 'axios';
 
 const encode = (data: any) => {
   return Object.keys(data)
@@ -11,26 +11,27 @@ const encode = (data: any) => {
  * @param {object} values
  */
 const netlifySubmit = async (values: any) => {
+  const formData = encode(values);
+
+  fetch('/connect', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: formData,
+  });
+
   // const keys = Object.keys(values);
   // const formData = new FormData();
-  const formData = encode(values);
 
   // for (let i = 0; i < keys.length; i++) {
   //   formData.append(keys[i], values[keys[i]]);
   // }
 
-  // fetch("/", {
-  //   method: "POST",
-  //   headers: { "Content-Type": "application/x-www-form-urlencoded" },
-  //   body: encode({ "form-name": "contact-demo", ...values })
-  // })
-
-  return axios({
-    method: 'post',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    data: formData,
-    url: '/connect',
-  });
+  // return axios({
+  //   method: 'post',
+  //   headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+  //   data: formData,
+  //   url: '/connect',
+  // });
 };
 
 export default netlifySubmit;
