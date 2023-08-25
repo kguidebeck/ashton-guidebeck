@@ -1,4 +1,5 @@
 export interface FormValues {
+  'form-name': string;
   fullName: string;
   email: string;
   message: string;

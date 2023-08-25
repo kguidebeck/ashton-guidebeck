@@ -9,6 +9,7 @@ import * as Styled from './ConnectForm.styled';
 const ConnectForm = () => {
   const [message, setMessage] = useState<string>();
   const initialValues = {
+    'form-name': 'connect',
     fullName: '',
     email: '',
     message: '',
