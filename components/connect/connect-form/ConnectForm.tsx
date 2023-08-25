@@ -9,7 +9,7 @@ import * as Styled from './ConnectForm.styled';
 const ConnectForm = () => {
   const [message, setMessage] = useState<string>();
   const initialValues = {
-    'form-name': 'connect',
+    'form-name': 'connect-form',
     'bot-field': '',
     fullName: '',
     email: '',
@@ -81,7 +81,7 @@ const ConnectForm = () => {
             /* and other goodies */
           }) => (
             <form
-              name="connect"
+              name="connect-form"
               onSubmit={handleSubmit}
               data-netlify="true"
               data-netlify-honeypot="bot-field"
