@@ -23,13 +23,15 @@ const Hero = ({ data }: { data: HomeHeroSchema }) => {
           <Styled.Headshot>
             <HeadshotBackground />
             {image?.asset?.url && (
-              <Image
-                src={image.asset.url}
-                alt={image.alt}
-                width={403}
-                height={606}
-                priority
-              />
+              <Styled.HeadshotImage>
+                <Image
+                  src={image.asset.url}
+                  alt={image.alt}
+                  sizes="(max-width: 768px) 50vw, (max-width: 879px) 29vw, 27vw"
+                  fill
+                  priority
+                />
+              </Styled.HeadshotImage>
             )}
           </Styled.Headshot>
           <Styled.Copy>
@@ -41,9 +43,9 @@ const Hero = ({ data }: { data: HomeHeroSchema }) => {
             <Styled.PlantGraphic>
               <Image
                 src={graphic.asset.url}
-                width={516}
-                height={590}
                 alt={graphic.alt}
+                fill
+                sizes="(max-width: 768px) 40vw, (max-width: 879px) 30vw, 35vw"
               />
             </Styled.PlantGraphic>
           )}

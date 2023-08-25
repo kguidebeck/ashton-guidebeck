@@ -19,23 +19,22 @@ const Connect = ({ data }: { data: ConnectSchema }) => {
             <Image
               className="image--desktop"
               src={background_desktop.asset.url}
-              width={1052}
-              height={862}
-              priority
-              loading="eager"
               alt={background_desktop.alt || ''}
+              fill
+              sizes="(max-width: 879px) 100vw, (max-width: 1239px) 84vw, 73vw"
+              priority
+              // loading="eager"
+              quality={80}
             />
           )}
           {isMobile && background_mobile.asset.url && (
             <Image
               className="image--mobile"
               src={background_mobile.asset.url}
-              width={1200}
-              height={1644}
-              priority
-              loading="eager"
-              // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               alt={background_desktop.alt || ''}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              priority
             />
           )}
         </Styled.Background>
