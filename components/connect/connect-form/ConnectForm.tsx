@@ -9,7 +9,6 @@ import * as Styled from './ConnectForm.styled';
 const ConnectForm = () => {
   const [message, setMessage] = useState<string>();
   const initialValues = {
-    'form-name': 'connect',
     fullName: '',
     email: '',
     message: '',
@@ -83,11 +82,7 @@ const ConnectForm = () => {
               data-netlify-honeypot="bot-field"
             >
               <VisuallyHidden as="div">
-                <input
-                  type="hidden"
-                  name="form-name"
-                  value={values['form-name']}
-                />
+                <input type="hidden" name="form-name" value="connect" />
                 <label htmlFor="bot-field">
                   Don&apos;t fill this out if you&apos;re human:
                   <input name="bot-field" />

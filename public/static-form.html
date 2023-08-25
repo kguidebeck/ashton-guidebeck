@@ -37,7 +37,10 @@
   <body>
     <!-- Hidden Form for Netlify -->
     <form name="connect" netlify netlify-honeypot="bot-field" hidden>
-      <input type="text" id="bot-field" name="bot-field" />
+      <label htmlFor="bot-field">
+        Don&apos;t fill this out if you&apos;re human:
+        <input name="bot-field" />
+      </label>
       <input type="text" id="fullName" name="fullName" />
       <input type="email" id="email" name="email" />
       <textarea id="message" name="message"></textarea>
