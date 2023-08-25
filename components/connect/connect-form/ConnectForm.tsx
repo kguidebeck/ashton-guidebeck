@@ -9,6 +9,8 @@ import * as Styled from './ConnectForm.styled';
 const ConnectForm = () => {
   const [message, setMessage] = useState<string>();
   const initialValues = {
+    'form-name': 'connect',
+    'bot-field': '',
     fullName: '',
     email: '',
     message: '',
@@ -30,6 +32,9 @@ const ConnectForm = () => {
               !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
             ) {
               errors.email = 'Invalid email address';
+            }
+            if (!values.message) {
+              errors.message = 'Required';
             }
             return errors;
           }}
@@ -82,7 +87,11 @@ const ConnectForm = () => {
               data-netlify-honeypot="bot-field"
             >
               <VisuallyHidden as="div">
-                <input type="hidden" name="form-name" value="connect" />
+                <input
+                  type="hidden"
+                  name="form-name"
+                  value={values['form-name']}
+                />
                 <label htmlFor="bot-field">
                   Don&apos;t fill this out if you&apos;re human:
                   <input name="bot-field" />

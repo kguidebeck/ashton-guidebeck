@@ -11,12 +11,12 @@ const netlifySubmit = async (values: any) => {
       .join('&');
   };
 
-  console.log({ 'form-name': 'connect', 'bot-field': '', ...values });
+  console.log(values);
 
   return fetch('/connect', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: encode({ 'form-name': 'connect', 'bot-field': '', ...values }),
+    body: encode(values),
   });
 };
 

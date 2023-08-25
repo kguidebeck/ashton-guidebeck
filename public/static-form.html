@@ -36,13 +36,23 @@
   </head>
   <body>
     <!-- Hidden Form for Netlify -->
-    <form name="connect" netlify netlify-honeypot="bot-field" hidden>
+    <!-- <form name="connect" netlify netlify-honeypot="bot-field" hidden>
       <label htmlFor="bot-field">
         Don&apos;t fill this out if you&apos;re human:
         <input name="bot-field" />
       </label>
       <input type="text" id="fullName" name="fullName" />
       <input type="email" id="email" name="email" />
+      <textarea id="message" name="message"></textarea>
+    </form> -->
+
+    <form name="connect" netlify netlify-honeypot="bot-field" hidden>
+      <label for="bot-field">
+        Don&apos;t fill this out if you&apos;re human:
+        <input name="bot-field">
+      </label>
+      <input id="fullName" type="text" name="fullName">
+      <input id="email" type="email" name="email">
       <textarea id="message" name="message"></textarea>
     </form>
 
