@@ -6,11 +6,11 @@ import { ButtonStyles } from '@components/ui/button/Button.styled';
 import Container from '@components/container';
 
 export const ContentWrapper = styled.div`
-  min-height: calc(100vh - ${rem(76)});
   display: flex;
-  text-align: center;
+  min-height: calc(100vh - ${rem(76)});
   align-items: center;
   justify-content: center;
+  text-align: center;
 `;
 
 export const Content = styled(Container)`

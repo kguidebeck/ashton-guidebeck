@@ -15,21 +15,21 @@ export const Form = styled.div`
 
 export const Submit = styled.button`
   ${ButtonStyles}
-  margin-left: auto;
   min-width: ${rem(192)};
+  margin-left: auto;
 `;
 
 export const Message = styled.div<{ active: boolean }>`
   position: absolute;
   width: 100%;
-  font-family: ${Font.noto};
-  font-size: ${rem(12)};
+  padding: ${rem(8)} ${rem(15)};
+  border-radius: ${rem(30)};
+  margin-top: ${rem(15)};
   background-color: ${Color.sageDark};
   color: ${Color.cream};
-  margin-top: ${rem(15)};
-  padding: ${rem(8)} ${rem(15)};
+  font-family: ${Font.noto};
+  font-size: ${rem(12)};
   text-align: center;
-  border-radius: ${rem(30)};
   transform: scaleY(0);
   transition: transform 300ms ${Ease.out};
 

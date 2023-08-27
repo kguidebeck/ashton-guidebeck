@@ -156,7 +156,7 @@ const ConnectForm = () => {
                 />
               </InputWrap>
               <Styled.Submit type="submit" disabled={isSubmitting}>
-                {isSubmitting ? 'Submitting' : 'Submit'}
+                {isSubmitting ? 'Connecting' : 'Let’s Connect'}
               </Styled.Submit>
             </form>
           )}

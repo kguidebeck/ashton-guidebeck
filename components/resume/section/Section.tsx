@@ -65,44 +65,52 @@ const SubSection = ({ data }: { data: ResumeSubSection }) => {
   );
 };
 
-const Section = ({ data }: { data: ResumeSection }) => {
+const Section = ({
+  data,
+  windowWidth,
+}: {
+  data: ResumeSection;
+  windowWidth: number | undefined;
+}) => {
   const { heading, items } = data;
   const [isOpen, setIsOpen] = useState(true);
   const [panelHeight, setPanelHeight] = useState<number>();
   const buttonId = `button-${formatId(heading)}`;
   const sectionId = `section-${formatId(heading)}`;
 
-  const updatePanelHeight = (state: 'open' | 'close') => {
+  const updatePanelHeight = (toState?: 'open' | 'close') => {
     var panel = document.getElementById(sectionId);
 
     if (panel) {
-      if (panelHeight !== panel.scrollHeight || state === 'close')
-        setPanelHeight(state === 'open' ? panel?.scrollHeight || 0 : 0);
+      if (toState === undefined) {
+        setPanelHeight(isOpen ? panel?.scrollHeight || 0 : 0);
+      } else {
+        if (panelHeight !== panel.scrollHeight && toState === 'open') {
+          setPanelHeight(panel?.scrollHeight || 0);
+        } else if (toState === 'close') {
+          setPanelHeight(0);
+        }
+      }
     }
   };
-
-  const panelHeightListener = () => {
-    updatePanelHeight(isOpen ? 'open' : 'close');
-  };
-
-  useEffect(() => {
-    if (isOpen) updatePanelHeight('open');
-
-    window.addEventListener('resize', panelHeightListener);
-
-    return () => {
-      window.removeEventListener('resize', panelHeightListener);
-    };
-  }, []);
-
-  // useEffect(() => {
-  //   console.log('open state: ', isOpen);
-  // }, [isOpen]);
 
   const toggleSection = () => {
     setIsOpen((prevState) => !prevState);
     updatePanelHeight(isOpen ? 'close' : 'open');
   };
+
+  // Set PanelHeight on load
+  useEffect(() => {
+    var panel = document.getElementById(sectionId);
+
+    if (panel) {
+      setPanelHeight(panel?.scrollHeight || 0);
+    }
+  }, []);
+
+  useEffect(() => {
+    updatePanelHeight();
+  }, [windowWidth]);
 
   return (
     <Styled.Section>
@@ -114,6 +122,7 @@ const Section = ({ data }: { data: ResumeSection }) => {
       )}
       <Styled.AccordionSection
         id={sectionId}
+        className="accordion-section"
         aria-labelledby={buttonId}
         panelHeight={panelHeight}
       >

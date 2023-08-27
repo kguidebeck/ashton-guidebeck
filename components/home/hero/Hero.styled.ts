@@ -4,12 +4,12 @@ import { rem } from '@styles/helpers';
 import ContainerComponent from '@components/container';
 
 export const Hero = styled.div`
-  min-height: calc(100vh - ${rem(76)});
-  padding-bottom: ${rem(80)};
   display: flex;
-  align-items: center;
-  width: 100%;
   overflow: hidden;
+  width: 100%;
+  min-height: calc(100vh - ${rem(76)});
+  align-items: center;
+  padding-bottom: ${rem(80)};
 
   @media ${Screen.laptopSm} {
     padding: ${rem(100)} 0;
@@ -32,8 +32,8 @@ export const Container = styled(ContainerComponent)`
 
 export const BackgroundWrap = styled.div`
   position: absolute;
-  inset: 0;
   overflow: hidden;
+  inset: 0;
 `;
 
 export const CircleBackground = styled.div`
@@ -72,13 +72,13 @@ export const CircleBackground = styled.div`
 `;
 
 export const PlantGraphic = styled.div`
-  max-width: ${rem(300)};
-  width: 35vw;
   position: absolute;
   right: -20%;
   bottom: -8%;
-  aspect-ratio: 488 / 590;
   overflow: hidden;
+  aspect-ratio: 488 / 590;
+  width: 35vw;
+  max-width: ${rem(300)};
 
   @media ${Screen.portrait} {
     width: 56vw;
@@ -97,12 +97,12 @@ export const PlantGraphic = styled.div`
 `;
 
 export const GraphicMobile = styled.div`
-  width: ${rem(290)};
   position: absolute;
   right: -4%;
   bottom: -2%;
-  aspect-ratio: 251 / 287;
   overflow: hidden;
+  aspect-ratio: 251 / 287;
+  width: ${rem(290)};
 
   @media ${Screen.portraitUp} {
     display: none;
@@ -122,16 +122,16 @@ export const Grid = styled.div`
 
 export const Content = styled.div`
   position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
-  z-index: 1;
   padding-top: ${rem(80)};
 
   @media ${Screen.portrait} {
+    max-width: ${rem(500)};
     flex-direction: column-reverse;
     align-items: flex-end;
     padding-top: 0;
-    max-width: ${rem(500)};
     margin: 0 auto;
   }
 
@@ -142,20 +142,20 @@ export const Content = styled.div`
 
 export const Headshot = styled.div`
   position: relative;
-  max-width: ${rem(300)};
-  width: 25vw;
-  color: ${Color.sageLight};
   overflow: hidden;
+  width: 25vw;
+  max-width: ${rem(300)};
   margin: 0 ${rem(100)};
+  color: ${Color.sageLight};
 
   @media ${Screen.laptopSm} {
     margin: 0 ${rem(50)} 0 ${rem(100)};
   }
 
   @media ${Screen.tablet} {
+    width: 160vw;
     max-width: ${rem(300)};
     margin: 0 ${rem(50)} 0 1vw;
-    width: 160vw;
   }
 
   @media ${Screen.portrait} {
@@ -171,11 +171,11 @@ export const Headshot = styled.div`
 export const HeadshotImage = styled.div`
   position: absolute;
   bottom: 2.5%;
+  left: 50%;
+  aspect-ratio: 403 / 606;
   width: 85%;
   height: auto;
-  left: 50%;
   transform: translateX(-50%);
-  aspect-ratio: 403 / 606;
 
   img {
     object-fit: cover;
@@ -191,9 +191,9 @@ export const Image = styled.img`
   position: absolute;
   bottom: 0;
   left: 50%;
-  transform: translateX(-50%);
-  max-width: unset;
   width: 110%;
+  max-width: unset;
+  transform: translateX(-50%);
 `;
 
 export const Copy = styled.div`
@@ -204,8 +204,8 @@ export const Copy = styled.div`
   }
 
   a {
-    margin-top: ${rem(40)};
     display: inline-block;
+    margin-top: ${rem(40)};
   }
 
   @media ${Screen.mobile} {
