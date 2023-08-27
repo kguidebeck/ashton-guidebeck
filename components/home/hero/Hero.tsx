@@ -1,11 +1,11 @@
-import * as Styled from './Hero.styled';
+import Image from 'next/image';
 import { HomeHeroSchema } from '@models/page.model';
 import CircleDesktop from '@assets/svgs/CircleDesktop';
 import CircleMobile from '@assets/svgs/CircleMobile';
 import HeadshotBackground from '@assets/svgs/HeadshotBackground';
 import RichText from '@components/ui/rich-text';
 import Button from '@components/ui/button/Button';
-import Image from 'next/image';
+import * as Styled from './Hero.styled';
 
 const Hero = ({ data }: { data: HomeHeroSchema }) => {
   const { heading, copy, cta, image, graphic } = data;
@@ -23,17 +23,19 @@ const Hero = ({ data }: { data: HomeHeroSchema }) => {
           <Styled.Headshot>
             <HeadshotBackground />
             {image?.asset?.url && (
-              <Image
-                src={image.asset.url}
-                alt={image.alt}
-                width={403}
-                height={606}
-                priority
-              />
+              <Styled.HeadshotImage>
+                <Image
+                  src={image.asset.url}
+                  alt={image.alt}
+                  sizes="(max-width: 768px) 50vw, (max-width: 879px) 29vw, 27vw"
+                  fill
+                  priority
+                />
+              </Styled.HeadshotImage>
             )}
           </Styled.Headshot>
           <Styled.Copy>
-            {heading && <Styled.Heading>Welcome, I'm Ashton.</Styled.Heading>}
+            {heading && <Styled.Heading>{heading}</Styled.Heading>}
             {copy && <RichText value={copy} />}
             {cta?.url && <Button href={cta.url}>{cta.text}</Button>}
           </Styled.Copy>
@@ -41,9 +43,9 @@ const Hero = ({ data }: { data: HomeHeroSchema }) => {
             <Styled.PlantGraphic>
               <Image
                 src={graphic.asset.url}
-                width={516}
-                height={590}
                 alt={graphic.alt}
+                fill
+                sizes="(max-width: 768px) 40vw, (max-width: 879px) 30vw, 35vw"
               />
             </Styled.PlantGraphic>
           )}

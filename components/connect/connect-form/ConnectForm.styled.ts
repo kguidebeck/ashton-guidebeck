@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { rem } from '@styles/helpers';
-import { ButtonStyles } from '@components/ui/button/Button.styled';
 import { Color, Ease, Font } from '@styles/constants';
+import { ButtonStyles } from '@components/ui/button/Button.styled';
 
 export const Form = styled.div`
   margin-top: ${rem(45)};
@@ -16,6 +16,7 @@ export const Form = styled.div`
 export const Submit = styled.button`
   ${ButtonStyles}
   margin-left: auto;
+  min-width: ${rem(192)};
 `;
 
 export const Message = styled.div<{ active: boolean }>`

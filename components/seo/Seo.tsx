@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { Sanity } from '@models/sanity.model';
 import { SITE_URL } from '@utils/constants';
@@ -11,8 +11,10 @@ const Seo = ({ seo, title }: { seo: Sanity.Seo | null; title?: string }) => {
   const canonicalURL = `${SITE_URL}${router.asPath}`;
 
   return (
-    <Helmet>
-      <title>{`${pageTitle ? `${pageTitle} | ` : ''}Ashton Guidebeck`}</title>
+    <Head>
+      <title key="title">{`${
+        pageTitle ? `${pageTitle} | ` : ''
+      }Ashton Guidebeck`}</title>
       {seo && (
         <>
           <link rel="canonical" href={seo?.canonical_url ?? canonicalURL} />
@@ -54,7 +56,7 @@ const Seo = ({ seo, title }: { seo: Sanity.Seo | null; title?: string }) => {
           {seo?.no_index && <meta name="robots" content="noindex" />}
         </>
       )}
-    </Helmet>
+    </Head>
   );
 };
 

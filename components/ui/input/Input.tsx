@@ -1,3 +1,4 @@
+import React from 'react';
 import TextInputBorder from '@assets/svgs/TextInputBorder';
 import * as Styled from './Input.styled';
 import TextAreaBorder from '@assets/svgs/TextAreaBorder';

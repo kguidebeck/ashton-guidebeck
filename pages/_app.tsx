@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { GlobalStyle } from '@styles/global';
 import Footer from '@components/footer';
 import Header from '@components/header';
@@ -9,10 +9,11 @@ export default function App({ Component, pageProps }: AppProps) {
   const { asPath } = useRouter();
 
   return (
-    <HelmetProvider>
+    <>
       <GlobalStyle />
-      <Helmet>
+      <Head>
         <meta charSet="UTF-8" />
+        <title key="title">Ashton Guidebeck</title>
         <link
           rel="apple-touch-icon"
           sizes="180x180"
@@ -36,7 +37,7 @@ export default function App({ Component, pageProps }: AppProps) {
           href="/favicons/safari-pinned-tab.svg"
           color="#000000"
         />
-        <link rel="shortcut icon" href="/favicons/favicon.ico" />
+        <link rel="shortcut icon" href="/favicon.ico" />
 
         <meta name="msapplication-TileColor" content="#6C674B" />
         <meta
@@ -44,10 +45,10 @@ export default function App({ Component, pageProps }: AppProps) {
           content="/favicons/favicon-32x32.png"
         />
         <meta name="theme-color" content="#6C674B" />
-      </Helmet>
+      </Head>
       <Header />
       <Component key={asPath} {...pageProps} />
       <Footer />
-    </HelmetProvider>
+    </>
   );
 }

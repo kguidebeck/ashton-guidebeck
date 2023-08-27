@@ -1,4 +1,4 @@
-import { Lora, Noto_Sans } from '@next/font/google';
+import { Lora, Noto_Sans } from 'next/font/google';
 
 const lora = Lora({
   subsets: ['latin'],

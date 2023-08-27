@@ -1,3 +1,4 @@
+import React from 'react';
 import * as Styled from './PageWrap.styled';
 
 const PageWrap = ({

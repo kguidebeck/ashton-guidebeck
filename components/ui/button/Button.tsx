@@ -1,3 +1,4 @@
+import React from 'react';
 import Link from 'next/link';
 import { UrlObject } from 'url';
 import styled from 'styled-components';
@@ -22,7 +23,7 @@ const Button = ({
   const isInternal = href
     ? ['/', '#'].includes(href.toString().charAt(0))
     : null;
-  const hasHash = href?.toString().includes('#');
+  // const hasHash = href?.toString().includes('#');
 
   const StyledButton = styled(
     isInternal && href ? Link : !isInternal && href ? 'a' : 'button'

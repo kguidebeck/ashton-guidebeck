@@ -11,6 +11,11 @@ export const InputWrap = styled.div`
 
   svg {
     width: 100%;
+    pointer-events: none;
+  }
+
+  input {
+    height: 65%;
   }
 
   input,

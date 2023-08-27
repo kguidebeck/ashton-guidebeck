@@ -1,4 +1,3 @@
-import { NextPage, GetStaticPropsContext } from 'next';
 import {
   getSanityData,
   homePageType,
@@ -20,7 +19,7 @@ const HomePage = ({ data }: HomePageSchema) => {
   );
 };
 
-export async function getServerSideProps(context: GetStaticPropsContext) {
+export async function getServerSideProps() {
   const [data] = await Promise.all([
     await getSanityData<HomeSchema>(homePageType, HOME_PROJECTION),
   ]);

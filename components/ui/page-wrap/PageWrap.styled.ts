@@ -4,5 +4,7 @@ import styled from 'styled-components';
 export const Wrap = styled.div<{ pageID?: string }>`
   position: relative;
   padding: ${({ pageID }) =>
-    pageID && pageID === 'home' ? `0` : `${rem(150)} 0`};
+    pageID && (pageID === 'home' || pageID === 'error')
+      ? `0`
+      : `${rem(150)} 0`};
 `;

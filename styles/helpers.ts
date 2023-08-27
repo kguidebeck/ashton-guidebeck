@@ -14,7 +14,7 @@ import { BASE_FONT_SIZE } from './constants';
 //   mobileRealSm: '375px',
 // };
 
-export const hover = (val) => `
+export const hover = (val: any) => `
   @media(hover: hover) {
     &:hover {
       ${val}

@@ -1,16 +1,16 @@
 import { useState } from 'react';
 import { Formik } from 'formik';
-import * as Styled from './ConnectForm.styled';
-import { FormErrors, FormValues } from './ConnectForm.model';
-import InputWrap from '@components/ui/input';
 import netlifySubmit from '@utils/netlifySubmit';
 import { VisuallyHidden } from '@styles/helpers';
+import InputWrap from '@components/ui/input';
+import { FormErrors, FormValues } from './ConnectForm.model';
+import * as Styled from './ConnectForm.styled';
 
 const ConnectForm = () => {
   const [message, setMessage] = useState<string>();
   const initialValues = {
     'form-name': 'connect',
-    full_name: '',
+    fullName: '',
     email: '',
     message: '',
   };
@@ -22,8 +22,8 @@ const ConnectForm = () => {
           initialValues={initialValues}
           validate={(values: FormValues) => {
             const errors = {} as FormErrors;
-            if (!values.full_name) {
-              errors.full_name = 'Required';
+            if (!values.fullName) {
+              errors.fullName = 'Required';
             }
             if (!values.email) {
               errors.email = 'Required';
@@ -32,28 +32,49 @@ const ConnectForm = () => {
             ) {
               errors.email = 'Invalid email address';
             }
+            if (!values.message) {
+              errors.message = 'Required';
+            }
             return errors;
           }}
           onSubmit={(values: FormValues, { setSubmitting, resetForm }) => {
+            setSubmitting(true);
+
+            const botField = document.getElementsByName(
+              'bot-field'
+            )[0] as HTMLInputElement;
+
+            if (botField && botField.value !== '') {
+              values['bot-field'] = botField.value;
+            }
+
             netlifySubmit(values)
               .then(() => {
-                setSubmitting(false);
-                resetForm();
-                setMessage(
-                  'Thank you for your message. I will be in touch shortly.'
-                );
+                setTimeout(() => {
+                  resetForm();
+                  setMessage(
+                    'Thank you for your message. I will be in touch shortly.'
+                  );
+                  window.scrollTo({
+                    top: 100,
+                    left: 100,
+                    behavior: 'smooth',
+                  });
+                  setSubmitting(false);
+                }, 500);
               })
               .catch((error) => {
                 // eslint-disable-next-line no-console
                 console.log(error);
-                setMessage(
-                  `There was an error with your submission${
-                    error ? `: ${error}` : '.'
-                  }`
-                );
+                setTimeout(() => {
+                  setMessage(
+                    `There was an error with your submission${
+                      error ? `: ${error}` : '.'
+                    }`
+                  );
+                  setSubmitting(false);
+                }, 500);
               });
-
-            setSubmitting(false);
           }}
         >
           {({
@@ -72,32 +93,32 @@ const ConnectForm = () => {
               data-netlify="true"
               data-netlify-honeypot="bot-field"
             >
-              <VisuallyHidden as="div" aria-hidden="true">
-                <input
-                  type="hidden"
-                  name="form-name"
-                  value={values['form-name']}
-                />
+              <input
+                type="hidden"
+                name="form-name"
+                value={values['form-name']}
+              />
+              <VisuallyHidden as="div">
                 <label htmlFor="bot-field">
                   Don&apos;t fill this out if you&apos;re human:
                   <input name="bot-field" />
                 </label>
               </VisuallyHidden>
               <InputWrap
-                id="full_name"
+                id="fullName"
                 label="Full Name"
-                error={errors.full_name}
-                touched={touched.full_name}
+                error={errors.fullName}
+                touched={touched.fullName}
               >
                 <input
-                  id="full_name"
+                  id="fullName"
                   type="text"
-                  name="full_name"
+                  name="fullName"
                   placeholder="FULL NAME*"
                   required
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  value={values.full_name}
+                  value={values.fullName}
                 />
               </InputWrap>
               <InputWrap
@@ -110,7 +131,7 @@ const ConnectForm = () => {
                   id="email"
                   type="email"
                   name="email"
-                  placeholder="EMAIL*"
+                  placeholder="EMAIL ADDRESS*"
                   required
                   onChange={handleChange}
                   onBlur={handleBlur}

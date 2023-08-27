@@ -1,14 +1,14 @@
+import { useEffect, useState } from 'react';
 import format from 'date-fns/format';
 import parse from 'date-fns/parse';
 import { formatId } from '@utils/formatId';
 import RichText from '@components/ui/rich-text';
-import * as Styled from './Section.styled';
 import {
   ResumeDateRange,
   ResumeSection,
   ResumeSubSection,
 } from '../Resume.model';
-import { useEffect, useState } from 'react';
+import * as Styled from './Section.styled';
 
 const formatDateRange = (date_range: ResumeDateRange) => {
   const { start_date, end_date, present_item } = date_range;

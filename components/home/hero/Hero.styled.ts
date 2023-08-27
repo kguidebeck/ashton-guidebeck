@@ -166,14 +166,19 @@ export const Headshot = styled.div`
   @media ${Screen.mobile} {
     width: 60vw;
   }
+`;
 
-  & > img {
-    position: absolute;
-    bottom: 2.5%;
-    width: 85%;
-    height: auto;
-    left: 50%;
-    transform: translateX(-50%);
+export const HeadshotImage = styled.div`
+  position: absolute;
+  bottom: 2.5%;
+  width: 85%;
+  height: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  aspect-ratio: 403 / 606;
+
+  img {
+    object-fit: cover;
   }
 `;
 
