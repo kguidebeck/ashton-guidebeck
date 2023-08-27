@@ -1,5 +1,5 @@
 import Expand from '@assets/svgs/Expand';
-import { Color, Font, Weight, Screen } from '@styles/constants';
+import { Color, Font, Weight, Screen, Ease } from '@styles/constants';
 import { rem } from '@styles/helpers';
 import styled from 'styled-components';
 
@@ -67,16 +67,15 @@ export const ExpandIcon = styled(Expand)<{ isOpen: boolean }>`
 
 export const AccordionButton = styled.button`
   position: relative;
-  border: 0;
-  padding: 0;
-  background: transparent;
-  width: 100%;
   display: flex;
-  justify-content: space-between;
+  width: 100%;
   align-items: center;
+  justify-content: space-between;
+  padding: ${rem(24)} var(--padding-x);
+  border: 0;
   border-radius: 3px;
   background: var(--section-color);
-  padding: ${rem(24)} var(--padding-x);
+  color: ${Color.black};
 
   @media ${Screen.mobile} {
     padding: ${rem(18)} var(--padding-x);
@@ -84,9 +83,9 @@ export const AccordionButton = styled.button`
 `;
 
 export const Heading = styled.h2`
+  padding-right: ${rem(25)};
   font-size: ${rem(18)};
   line-height: 1.2;
-  padding-right: ${rem(25)};
   text-align: left;
 
   @media ${Screen.mobile} {
@@ -97,10 +96,10 @@ export const Heading = styled.h2`
 export const AccordionSection = styled.div<{
   panelHeight?: number;
 }>`
-  max-height: ${({ panelHeight }) =>
-    panelHeight || panelHeight === 0 ? `${panelHeight}px` : 'none'};
-  transition: max-height 300ms ease;
   overflow: hidden;
+  max-height: ${({ panelHeight }) =>
+    panelHeight || panelHeight === 0 ? `${panelHeight}px` : '0'};
+  transition: max-height 500ms ${Ease.out};
 `;
 
 export const SectionGrid = styled.div`
@@ -133,9 +132,9 @@ export const SubSectionHeadingWrap = styled.div<{ noMargin: boolean }>`
 
 export const SubSectionHeading = styled.h3`
   --heading-size: ${rem(18)};
+  margin-bottom: ${rem(5)};
   font-family: ${Font.noto};
   font-size: var(--heading-size);
-  margin-bottom: ${rem(5)};
   line-height: 1.2;
 
   time {
@@ -167,8 +166,8 @@ export const SubSectionHeading = styled.h3`
   }
 
   span {
-    font-weight: ${Weight.bold};
     padding-right: ${rem(10)};
+    font-weight: ${Weight.bold};
 
     @media ${Screen.mobile} {
       display: block;

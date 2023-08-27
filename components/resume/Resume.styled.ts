@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Link from 'next/link';
 import { Screen } from '@styles/constants';
 import { ButtonStyles } from '@components/ui/button/Button.styled';
+import { rem } from '@styles/helpers';
 
 export const Resume = styled.div`
   --container-width: 1080px;
@@ -10,14 +11,19 @@ export const Resume = styled.div`
 `;
 
 export const Header = styled.div`
-  padding-bottom: 75px;
+  padding-bottom: ${rem(75)};
+
+  @media ${Screen.mobile} {
+    padding-bottom: ${rem(50)};
+    text-align: center;
+  }
 `;
 
 export const HeaderWrapper = styled.div`
   @media ${Screen.mobileUp} {
     display: flex;
-    justify-content: space-between;
     align-items: flex-start;
+    justify-content: space-between;
   }
 `;
 

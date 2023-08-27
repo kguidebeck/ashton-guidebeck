@@ -66,27 +66,3 @@ export const Ease = {
   outFast: `cubic-bezier(0.2, 1, 0.2, 1)`,
   duration: '0.2s',
 };
-
-export const Grid = {
-  mobilePadding: '20px',
-  mobilePaddingCols: '10px',
-};
-
-export const Spacing = {
-  large: '140px',
-  medium: '100px',
-  small: '80px',
-  xSmall: '60px',
-};
-
-export const Heights = {
-  header: '60px',
-  headerMobile: '60px',
-  banner: '40px',
-  bannerMobile: '60px',
-};
-
-export const Z = {
-  header: '1049',
-  subnav: '1048',
-};

@@ -59,11 +59,10 @@ const ToggleKeyframes = `
 export const Header = styled.header<{ scrolled: boolean; isOpen: boolean }>`
   --duration: 0.6s;
   position: fixed;
+  z-index: 1000;
   width: 100%;
   padding: 0 ${rem(54)};
-  z-index: 1000;
   transition: padding var(--duration) ${Ease.out};
-  z-index: 1000;
 
   @media ${Screen.tablet} {
     padding: 0 ${rem(35)};
@@ -71,26 +70,22 @@ export const Header = styled.header<{ scrolled: boolean; isOpen: boolean }>`
 
   @media ${Screen.mobile} {
     padding: 0;
-    transition: background-color 500ms ${Ease.out};
-
     background-color: ${({ isOpen }) =>
       isOpen ? Color.pinkLight : 'transparent'};
+    transition: background-color 500ms ${Ease.out};
   }
 
   &::after {
     content: '';
-    opacity: 0;
+    position: absolute;
+    inset: 0 0 0 ${rem(160)};
+    z-index: 0;
     background-color: ${({ isOpen }) =>
       isOpen ? Color.pinkLight : Color.cream};
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: ${rem(160)};
     box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 40px -1px;
+    opacity: 0;
     transition: background-color 500ms ${Ease.out},
       opacity var(--duration) ${Ease.out};
-    z-index: 0;
 
     @media ${Screen.mobile} {
       left: ${rem(75)};
@@ -108,10 +103,10 @@ export const Header = styled.header<{ scrolled: boolean; isOpen: boolean }>`
 
 export const Container = styled.div`
   position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
   @media ${Screen.mobile} {
     padding-right: ${rem(20)};
@@ -119,14 +114,15 @@ export const Container = styled.div`
 `;
 
 export const LogoSVG = styled(LogoName)`
-  color: ${Color.white};
   width: 88%;
+  height: auto;
   margin: 0 auto;
+  color: ${Color.white};
 `;
 
 export const LogoBackground = styled(LogoCircle)`
-  transform: translateY(0);
   width: var(--logo-width);
+  transform: translateY(0);
   transform-origin: center;
   transition: transform var(--duration) ${Ease.out};
 `;
@@ -136,10 +132,10 @@ export const LogoWrap = styled.div<{ scrolled: boolean }>`
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 1;
   width: var(--logo-width);
   transform-origin: top left;
   transition: transform var(--duration) ${Ease.out};
-  z-index: 1;
 
   @media ${Screen.portrait} {
     --logo-width: ${rem(150)};
@@ -147,13 +143,13 @@ export const LogoWrap = styled.div<{ scrolled: boolean }>`
   }
 
   a {
-    display: block;
     position: absolute;
     top: calc(50% - 10px);
     left: 50%;
-    transform: translate(-50%, -50%);
     z-index: 5;
+    display: block;
     width: 60%;
+    transform: translate(-50%, -50%);
 
     &:focus-visible {
       outline-color: ${Color.white};
@@ -192,10 +188,10 @@ export const MobileToggle = styled.button<{
 }>`
   ${ToggleKeyframes};
   width: ${rem(30)};
-  color: ${Color.orangeDark};
   padding: 0;
-  background: transparent;
   border: 0;
+  background: transparent;
+  color: ${Color.orangeDark};
 
   @media ${Screen.mobileUp} {
     display: none;
@@ -206,9 +202,9 @@ export const MobileToggle = styled.button<{
 
     path {
       position: absolute;
-      transform-origin: 50% 50%;
       animation-duration: 500ms;
       animation-timing-function: ${Ease.out};
+      transform-origin: 50% 50%;
 
       &:nth-of-type(2) {
         transition: opacity 500ms ease;
@@ -220,23 +216,23 @@ export const MobileToggle = styled.button<{
     !initialRender &&
     !isOpen &&
     `
-  svg {
-    path {
-      animation-fill-mode: forwards;
+      svg {
+        path {
+          animation-fill-mode: forwards;
 
-      &:first-of-type {
-        animation-name: topBunClose;
-      }
+          &:first-of-type {
+            animation-name: topBunClose;
+          }
 
-      &:nth-of-type(2) {
-        opacity: 1;
-      }
+          &:nth-of-type(2) {
+            opacity: 1;
+          }
 
-      &:last-of-type {
-        animation-name: bottomBunClose;
+          &:last-of-type {
+            animation-name: bottomBunClose;
+          }
+        }
       }
-    }
-  }
   `}
 
   ${({ isOpen }) =>
@@ -264,27 +260,27 @@ export const MobileToggle = styled.button<{
 
 export const HeaderItems = styled.ul<{ isOpen: boolean }>`
   position: relative;
-  list-style: none;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-end;
   padding: 0;
   margin: 0;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  width: 100%;
+  list-style: none;
 
   @media ${Screen.mobile} {
-    flex-direction: column;
-    justify-content: flex-start;
     position: absolute;
-    top: ${rem(55)};
+    top: ${rem(60)};
     right: 0;
-    background: ${Color.pinkLight};
+    z-index: -1;
     width: 100%;
     height: calc(100dvh - ${rem(60)});
+    flex-direction: column;
+    justify-content: flex-start;
     padding: ${rem(75)} ${rem(20)} 0;
+    background: ${Color.pinkLight};
     transform: translateY(-120%);
     transition: transform 800ms ${Ease.out};
-    z-index: -1;
 
     ${({ isOpen }) =>
       isOpen &&
@@ -315,8 +311,8 @@ export const HeaderItem = styled.li`
   }
 
   @media ${Screen.mobile} {
-    text-align: center;
     width: 100%;
+    text-align: center;
 
     &:not(:last-of-type) {
       --button-background: transparent;
@@ -359,8 +355,8 @@ export const HeaderLink = styled(Link)`
   position: relative;
   font-family: ${Font.noto};
   font-weight: ${Weight.bold};
-  text-transform: uppercase;
   text-decoration: none;
+  text-transform: uppercase;
 
   @media ${Screen.mobile} {
     display: block;
@@ -376,7 +372,7 @@ export const HeaderLink = styled(Link)`
     border-radius: ${rem(2)};
     background: ${Color.sageDark};
     transform: scaleX(0);
-    transition: transform 500ms ${Ease.out};
     transform-origin: center;
+    transition: transform 500ms ${Ease.out};
   }
 `;

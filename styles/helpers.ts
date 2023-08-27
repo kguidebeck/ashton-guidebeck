@@ -1,18 +1,5 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { BASE_FONT_SIZE } from './constants';
-
-// export const bp = {
-//   desktop: '1680px',
-//   desktopSm: '1440px',
-//   laptop: '1380px',
-//   laptopSm: '1240px',
-//   tablet: '1080px',
-//   portrait: '880px',
-//   mobile: '767px',
-//   mobileMid: '625px',
-//   mobileSm: '580px',
-//   mobileRealSm: '375px',
-// };
 
 export const hover = (val: any) => `
   @media(hover: hover) {
@@ -23,17 +10,17 @@ export const hover = (val: any) => `
 `;
 
 export const VisuallyHidden = styled.span`
-  border: 0;
-  clip: rect(1px, 1px, 1px, 1px);
-  height: 1px;
+  position: absolute;
   overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  width: 1px;
+  height: 1px;
+  padding-top: 0;
+  padding-right: 0;
   padding-bottom: 0;
   padding-left: 0;
-  padding-right: 0;
-  padding-top: 0;
-  position: absolute;
+  border: 0;
   white-space: nowrap;
-  width: 1px;
 `;
 
 /**

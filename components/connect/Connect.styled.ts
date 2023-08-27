@@ -4,9 +4,9 @@ import styled from 'styled-components';
 
 export const Connect = styled.div`
   position: relative;
-  padding-top: ${rem(100)};
   width: 100%;
   max-width: ${rem(1800)};
+  padding-top: ${rem(100)};
   margin: 0 auto;
 
   @media ${Screen.portrait} {
@@ -15,9 +15,9 @@ export const Connect = styled.div`
 `;
 
 export const Background = styled.div`
-  aspect-ratio: 1.22;
   position: absolute;
   bottom: 0;
+  aspect-ratio: 1.22;
   width: 72vw;
   max-width: ${rem(1052)};
 
@@ -37,8 +37,8 @@ export const Background = styled.div`
   }
 
   @media ${Screen.portrait} {
-    width: 100vw;
     bottom: 0;
+    width: 100vw;
 
     img {
       width: 150vw;
@@ -72,10 +72,10 @@ export const Grid = styled.div`
 
 export const Content = styled.div`
   position: relative;
-  max-width: ${rem(650)};
   width: 35vw;
-  margin-left: auto;
+  max-width: ${rem(650)};
   padding-bottom: ${rem(180)};
+  margin-left: auto;
 
   @media ${Screen.laptopSm} {
     width: 40vw;
@@ -84,8 +84,8 @@ export const Content = styled.div`
   @media ${Screen.portrait} {
     width: 80vw;
     max-width: ${rem(450)};
-    margin-right: auto;
     padding-bottom: ${rem(400)};
+    margin-right: auto;
     text-align: center;
   }
 
