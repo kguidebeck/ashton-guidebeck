@@ -11,7 +11,7 @@ const netlifySubmit = async (values: any) => {
       .join('&');
   };
 
-  return fetch('/', {
+  return fetch('/static-form.html', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
