@@ -20,6 +20,7 @@ const Hero = ({ data }: { data: HomeHeroSchema }) => {
       </Styled.BackgroundWrap>
       <Styled.Container>
         <Styled.Content>
+          {heading && <Styled.Heading mobile>{heading}</Styled.Heading>}
           <Styled.Headshot>
             <HeadshotBackground />
             {image?.asset?.url && (
@@ -32,6 +33,16 @@ const Hero = ({ data }: { data: HomeHeroSchema }) => {
                   priority
                 />
               </Styled.HeadshotImage>
+            )}
+            {graphic?.asset?.url && (
+              <Styled.PlantGraphic mobile>
+                <Image
+                  src={graphic.asset.url}
+                  alt={graphic.alt}
+                  fill
+                  sizes="(max-width: 768px) 40vw, (max-width: 879px) 30vw, 35vw"
+                />
+              </Styled.PlantGraphic>
             )}
           </Styled.Headshot>
           <Styled.Copy>

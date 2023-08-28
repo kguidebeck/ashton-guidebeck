@@ -114,7 +114,7 @@ export const Container = styled.div`
 `;
 
 export const LogoSVG = styled(LogoName)`
-  width: 88%;
+  width: 100%;
   height: auto;
   margin: 0 auto;
   color: ${Color.white};
@@ -148,7 +148,7 @@ export const LogoWrap = styled.div<{ scrolled: boolean }>`
     left: 50%;
     z-index: 5;
     display: block;
-    width: 60%;
+    width: 52%;
     transform: translate(-50%, -50%);
 
     &:focus-visible {

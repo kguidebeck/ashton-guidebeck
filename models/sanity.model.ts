@@ -19,16 +19,17 @@ export namespace Sanity {
   }
 
   export interface Seo {
+    _type: string;
     title: string;
-    description?: string;
-    keywords?: string;
-    canonical_url?: string;
-    og_site_name?: string;
-    og_title?: string;
-    og_description?: string;
-    // og_image?: CloudinaryAsset;
-    itemprop_title?: string;
-    itemprop_desc?: string;
+    secret: string;
+    description: string;
+    keywords: string;
+    image?: {
+      _type: string;
+      asset: {
+        url: string;
+      };
+    };
     no_index?: boolean;
   }
 

@@ -17,7 +17,7 @@ const Seo = ({ seo, title }: { seo: Sanity.Seo | null; title?: string }) => {
       }Ashton Guidebeck`}</title>
       {seo && (
         <>
-          <link rel="canonical" href={seo?.canonical_url ?? canonicalURL} />
+          <link rel="canonical" href={canonicalURL} />
           <meta
             name="description"
             content={seo?.description ?? defaultDescription}
@@ -26,33 +26,34 @@ const Seo = ({ seo, title }: { seo: Sanity.Seo | null; title?: string }) => {
           {seo?.keywords && <meta name="keywords" content={seo.keywords} />}
 
           {/* Open Graph */}
-          <meta
-            name="og:site_name"
-            content={seo?.og_site_name ?? 'Ashton Guidebeck'}
-          />
-          {(seo?.og_title || seo?.title) && (
-            <meta name="og:title" content={seo?.og_title ?? seo?.title} />
-          )}
+          <meta name="og:site_name" content="Ashton Guidebeck" />
+          {seo?.title && <meta name="og:title" content={seo.title} />}
           <meta
             name="og:description"
-            content={
-              seo?.og_description ?? seo?.description ?? defaultDescription
-            }
+            content={seo?.description ?? defaultDescription}
           />
-          <meta name="og:image:height" content="268" />
-          <meta name="og:image:width" content="512" />
-          <meta name="og:url" content={seo?.canonical_url ?? canonicalURL} />
-
-          {(seo?.itemprop_title ?? seo?.title) && (
-            <meta
-              name="itemprop:title"
-              content={seo?.itemprop_title ?? seo?.title}
-            />
-          )}
           <meta
-            name="itemprop:description"
-            content={seo?.itemprop_desc ?? defaultDescription}
+            property="og:image"
+            content={seo?.image?.asset?.url || `/seo-home.jpg`}
           />
+          <meta name="og:image:height" content="403" />
+          <meta name="og:image:width" content="512" />
+          <meta name="og:url" content={canonicalURL} />
+
+          {/* Twitter */}
+          <meta name="twitter:creator" content={pageTitle} />
+          <meta name="twitter:card" content="summary" />
+          <meta name="twitter:title" content={pageTitle} />
+          <meta
+            name="twitter:description"
+            content={seo?.description || defaultDescription}
+          />
+          <meta
+            property="twitter:image:src"
+            content={seo?.image?.asset?.url || `/seo-home.jpg`}
+          />
+          <meta name="twitter:url" content={canonicalURL} />
+
           {seo?.no_index && <meta name="robots" content="noindex" />}
         </>
       )}
