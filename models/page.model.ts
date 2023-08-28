@@ -11,6 +11,7 @@ export const resumePageType = 'page_resume';
 export const contactPageType = 'page_connect';
 
 export const HOME_PROJECTION = `{
+  seo,
   hero {
     heading,
     copy,

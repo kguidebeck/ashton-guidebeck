@@ -17,6 +17,7 @@ export const Hero = styled.div`
 
   @media ${Screen.portrait} {
     padding: ${rem(175)} 0;
+    background-color: ${Color.pinkLight};
   }
 
   @media ${Screen.mobile} {
@@ -42,11 +43,16 @@ export const CircleBackground = styled.div`
   right: 0;
   width: 75vw;
 
+  @media ${Screen.laptopSm} {
+    width: 80vw;
+  }
+
   @media ${Screen.tablet} {
     width: 85vw;
   }
 
   @media ${Screen.portrait} {
+    display: none;
     width: 110vw;
     left: 0;
   }
@@ -71,23 +77,43 @@ export const CircleBackground = styled.div`
   }
 `;
 
-export const PlantGraphic = styled.div`
+export const PlantGraphic = styled.div<{ mobile?: boolean }>`
   position: absolute;
-  right: -20%;
-  bottom: -8%;
+  right: -10vw;
+  bottom: -7vw;
   overflow: hidden;
   aspect-ratio: 488 / 590;
   width: 35vw;
   max-width: ${rem(300)};
 
+  @media ${Screen.desktopSm} {
+    width: 25vw;
+  }
+
   @media ${Screen.portrait} {
-    width: 56vw;
+    width: 35vw;
+    right: -15vw;
   }
 
   @media ${Screen.mobile} {
-    right: -10vw;
-    bottom: 15vw;
+    width: 50vw;
+    right: -50%;
+    bottom: -8%;
   }
+
+  ${({ mobile }) =>
+    mobile
+      ? `
+        display: none;
+        @media ${Screen.portrait} {
+          display: block;
+      }`
+      : `
+        display: block;
+        @media ${Screen.portrait} {
+          display: none;
+        }
+      `}
 
   img {
     width: 100%;
@@ -129,7 +155,7 @@ export const Content = styled.div`
 
   @media ${Screen.portrait} {
     max-width: ${rem(500)};
-    flex-direction: column-reverse;
+    flex-direction: column;
     align-items: flex-end;
     padding-top: 0;
     margin: 0 auto;
@@ -148,8 +174,12 @@ export const Headshot = styled.div`
   margin: 0 ${rem(100)};
   color: ${Color.sageLight};
 
+  @media ${Screen.desktopUp} {
+    margin: 0 ${rem(100)} 0 0;
+  }
+
   @media ${Screen.laptopSm} {
-    margin: 0 ${rem(50)} 0 ${rem(100)};
+    margin: 0 ${rem(50)} 0 0;
   }
 
   @media ${Screen.tablet} {
@@ -159,8 +189,9 @@ export const Headshot = styled.div`
   }
 
   @media ${Screen.portrait} {
+    overflow: unset;
     width: 75vw;
-    margin: ${rem(40)} auto 0 0;
+    margin: 0 30% 0 0;
   }
 
   @media ${Screen.mobile} {
@@ -199,6 +230,16 @@ export const Image = styled.img`
 export const Copy = styled.div`
   max-width: ${rem(550)};
 
+  @media ${Screen.portrait} {
+    margin-top: 8vw;
+  }
+
+  @media ${Screen.mobile} {
+    display: flex;
+    flex-direction: column;
+    margin-top: ${rem(45)};
+  }
+
   p {
     margin: 0;
   }
@@ -207,13 +248,24 @@ export const Copy = styled.div`
     display: inline-block;
     margin-top: ${rem(40)};
   }
-
-  @media ${Screen.mobile} {
-    display: flex;
-    flex-direction: column;
-  }
 `;
 
-export const Heading = styled.h1`
+export const Heading = styled.h1<{ mobile?: boolean }>`
+  width: 100%;
   margin-bottom: ${rem(35)};
+
+  ${({ mobile }) =>
+    mobile
+      ? `
+        display: none;
+
+        @media ${Screen.portrait} {
+          display: block;
+        }
+      `
+      : `
+      @media ${Screen.portrait} {
+        display: none;
+      }
+    `}
 `;
