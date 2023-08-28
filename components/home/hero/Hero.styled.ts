@@ -1,7 +1,9 @@
+import Link from 'next/link';
 import styled from 'styled-components';
 import { Color, Screen } from '@styles/constants';
 import { rem } from '@styles/helpers';
 import ContainerComponent from '@components/container';
+import { ButtonStyles } from '@components/ui/button/Button.styled';
 
 export const Hero = styled.div`
   display: flex;
@@ -268,4 +270,8 @@ export const Heading = styled.h1<{ mobile?: boolean }>`
         display: none;
       }
     `}
+`;
+
+export const Button = styled(Link)`
+  ${ButtonStyles};
 `;
