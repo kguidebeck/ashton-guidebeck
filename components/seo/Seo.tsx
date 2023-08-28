@@ -34,7 +34,7 @@ const Seo = ({ seo, title }: { seo: Sanity.Seo | null; title?: string }) => {
           />
           <meta
             property="og:image"
-            content={seo?.image?.asset?.url || `/seo-home.jpg`}
+            content={seo?.image?.asset?.url || `/share.webp`}
           />
           <meta name="og:image:height" content="403" />
           <meta name="og:image:width" content="512" />
@@ -50,7 +50,7 @@ const Seo = ({ seo, title }: { seo: Sanity.Seo | null; title?: string }) => {
           />
           <meta
             property="twitter:image:src"
-            content={seo?.image?.asset?.url || `/seo-home.jpg`}
+            content={seo?.image?.asset?.url || `/share.webp`}
           />
           <meta name="twitter:url" content={canonicalURL} />
 

@@ -4,7 +4,6 @@ import CircleDesktop from '@assets/svgs/CircleDesktop';
 import CircleMobile from '@assets/svgs/CircleMobile';
 import HeadshotBackground from '@assets/svgs/HeadshotBackground';
 import RichText from '@components/ui/rich-text';
-import Button from '@components/ui/button/Button';
 import * as Styled from './Hero.styled';
 
 const Hero = ({ data }: { data: HomeHeroSchema }) => {
@@ -41,6 +40,7 @@ const Hero = ({ data }: { data: HomeHeroSchema }) => {
                   alt={graphic.alt}
                   fill
                   sizes="(max-width: 768px) 40vw, (max-width: 879px) 30vw, 35vw"
+                  priority
                 />
               </Styled.PlantGraphic>
             )}
@@ -48,7 +48,9 @@ const Hero = ({ data }: { data: HomeHeroSchema }) => {
           <Styled.Copy>
             {heading && <Styled.Heading>{heading}</Styled.Heading>}
             {copy && <RichText value={copy} />}
-            {cta?.url && <Button href={cta.url}>{cta.text}</Button>}
+            {cta?.url && (
+              <Styled.Button href={cta.url}>{cta.text}</Styled.Button>
+            )}
           </Styled.Copy>
           {graphic?.asset?.url && (
             <Styled.PlantGraphic>
@@ -57,6 +59,7 @@ const Hero = ({ data }: { data: HomeHeroSchema }) => {
                 alt={graphic.alt}
                 fill
                 sizes="(max-width: 768px) 40vw, (max-width: 879px) 30vw, 35vw"
+                priority
               />
             </Styled.PlantGraphic>
           )}

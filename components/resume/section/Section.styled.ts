@@ -98,7 +98,7 @@ export const AccordionSection = styled.div<{
 }>`
   overflow: hidden;
   max-height: ${({ panelHeight }) =>
-    panelHeight || panelHeight === 0 ? `${panelHeight}px` : '0'};
+    panelHeight || panelHeight === 0 ? `${panelHeight}px` : 'none'};
   transition: max-height 500ms ${Ease.out};
 `;
 
